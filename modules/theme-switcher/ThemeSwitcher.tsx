@@ -3,15 +3,15 @@
 import { useState, useEffect, useRef } from 'react'
 
 const PRESETS = [
-  { name: 'Default',  dark: '#0B1437', teal: '#00BFA6', blue: '#1A56DB' },
-  { name: 'Plum',     dark: '#451952', teal: '#f39f5a', blue: '#ae445a' },
+  { name: 'Default',  dark: '#0B0C37', teal: '#f39f5a', blue: '#ae445a' },
+  { name: 'Navy',     dark: '#0B1437', teal: '#00BFA6', blue: '#1A56DB' },
   { name: 'Obsidian', dark: '#111318', teal: '#818cf8', blue: '#6366f1' },
   { name: 'Forest',   dark: '#0d1f1a', teal: '#34d399', blue: '#059669' },
 ]
 
 type Theme = { dark: string; teal: string; blue: string }
 
-const DEFAULT: Theme = { dark: '#0B1437', teal: '#00BFA6', blue: '#1A56DB' }
+const DEFAULT: Theme = { dark: '#0B0C37', teal: '#f39f5a', blue: '#ae445a' }
 
 function hexToChannels(hex: string) {
   const r = parseInt(hex.slice(1, 3), 16)

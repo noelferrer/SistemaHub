@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --color-brand-dark: 11 20 55;
-  --color-brand-teal: 0 191 166;
-  --color-brand-blue: 26 86 219;
+  --color-brand-dark: 11 12 55;
+  --color-brand-teal: 243 159 90;
+  --color-brand-blue: 174 68 90;
 }
 
 html {
