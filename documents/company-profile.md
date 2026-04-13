@@ -25,9 +25,11 @@ We specialize in building **custom business web applications** — from concept 
 
 ### TaoLink HRIS
 A human resource information system built for modern businesses. TaoLink simplifies employee management, attendance tracking, leave requests, and HR reporting — all in one place.
+→ [taolink.sistemahub.com](https://taolink.sistemahub.com)
 
 ### Landlord HQ
 A property management web application built for landlords and property managers. Landlord HQ helps track units, tenants, rent payments, and maintenance requests without the mess of spreadsheets.
+→ [landlordhq.sistemahub.com](https://landlordhq.sistemahub.com)
 
 ---
 
@@ -35,12 +37,18 @@ A property management web application built for landlords and property managers.
 
 We work closely with clients to understand the real problem before writing a single line of code. Our process is iterative — we build, show, refine, and ship. No black-box development.
 
+**Our process:**
+1. **Understand** — We learn the real problem before opening a code editor.
+2. **Design** — We map out the solution: structure, flow, and UX first.
+3. **Build** — Iterative development. You see progress at every stage.
+4. **Ship** — Deployed, tested, and yours. We stay close after launch.
+
 ---
 
 ## Contact
 
 **Email:** hello@sistemahub.com
-**Website:** sistemahub.com *(coming soon)*
+**Website:** [sistemahub.com](https://sistemahub.com)
 
 ---
 

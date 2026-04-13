@@ -8,21 +8,25 @@
 
 | Folder | What's inside |
 |--------|--------------|
+| `app/` | Next.js app shell — layout, globals, pages |
+| `modules/` | Site sections — Hero, About, Services, Products, Contact, ThemeSwitcher, Legal |
+| `components/` | Shared UI — Navbar, Footer |
+| `public/` | Static assets — logo SVGs |
 | `brand/` | Logo files, brand colors, typography, brand guidelines |
-| `website/` | Next.js marketing site (the public-facing website) |
 | `documents/` | Company profile, pitch deck, proposal & invoice templates |
-| `ops/` | Email setup, hosting, deployment, internal configs |
+| `ops/` | Deployment guide, email setup, hosting configs |
 
 ---
 
 ## Quick Links
 
-- **Need the logo?** → `brand/logo/`
-- **Need to send a proposal?** → `documents/templates/proposal-template.md`
-- **Need to introduce the company?** → `documents/company-profile.md`
-- **Setting up company email?** → `ops/email-setup.md`
-- **Deploying the website?** → `ops/deployment.md`
-- **Editing the website?** → `website/` (Next.js app)
+- **Need the logo?** → `brand/logo/option-b/`
+- **Brand guidelines?** → `brand/brand-guidelines.md` or `brand/guidelines.html`
+- **Send a proposal?** → `documents/templates/proposal-template.md`
+- **Introduce the company?** → `documents/company-profile.md`
+- **Set up email?** → `ops/email-setup.md`
+- **Deploy the website?** → `ops/deployment.md`
+- **Edit the website?** → `modules/` (each section is self-contained)
 
 ---
 
@@ -30,21 +34,28 @@
 
 | Asset | Status |
 |-------|--------|
-| Brand identity | Pending designer |
-| Website | In progress |
-| Company profile | Draft ready — needs review |
-| Proposal template | Draft ready — needs review |
+| Brand identity | Done — Option B logo, Plum palette |
+| Website | Live at [sistemahub.com](https://sistemahub.com) |
+| Terms of Service | Live at [sistemahub.com/terms](https://sistemahub.com/terms) |
+| Privacy Policy | Live at [sistemahub.com/privacy](https://sistemahub.com/privacy) |
+| Company profile | Ready |
+| Proposal template | Ready — fill in per project |
 | Company email (hello@sistemahub.com) | See `ops/email-setup.md` |
 
 ---
 
 ## Tech Stack (Website)
 
-- **Framework:** Next.js (App Router)
-- **Styling:** Tailwind CSS
-- **Components:** shadcn/ui
-- **Animations:** Framer Motion
-- **Hosting:** Self-hosted VPS via PM2 + Nginx + Certbot
+| Layer | Tool |
+|-------|------|
+| Framework | Next.js 15 (App Router) |
+| Styling | Tailwind CSS v3 |
+| Animations | Framer Motion 11 |
+| Process Manager | PM2 |
+| Reverse Proxy | Nginx |
+| SSL | Certbot (Let's Encrypt) |
+| Hosting | VPS — 187.77.131.194 |
+| Repo | github.com/noelferrer/SistemaHub |
 
 ---
 
