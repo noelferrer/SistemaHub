@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -26,9 +27,11 @@ export default function Footer() {
           >
             hello@sistemahub.com
           </a>
-          <p className="text-xs text-n-500">
-            © {year} SistemaHub
-          </p>
+          <p className="text-xs text-n-500">© {year} SistemaHub</p>
+          <div className="flex gap-4 text-xs text-n-500">
+            <Link href="/terms" className="hover:text-n-300 transition-colors">Terms</Link>
+            <Link href="/privacy" className="hover:text-n-300 transition-colors">Privacy</Link>
+          </div>
         </div>
 
       </div>

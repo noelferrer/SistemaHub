@@ -35,6 +35,35 @@ html {
     background-size: 48px 48px;
   }
 
+  /* Legal page prose */
+  .legal-prose h2 {
+    font-family: var(--font-display);
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #fff;
+    margin-top: 2.5rem;
+    margin-bottom: 0.875rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .legal-prose p {
+    font-size: 0.9rem;
+    color: #7B8DB0;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .legal-prose ul, .legal-prose ol {
+    margin: 0.5rem 0 1.25rem 1.25rem;
+    color: #7B8DB0;
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+  .legal-prose ul { list-style-type: disc; }
+  .legal-prose ol { list-style-type: decimal; }
+  .legal-prose li { margin-bottom: 0.35rem; }
+  .legal-prose strong { color: #D1D9E6; font-weight: 600; }
+  .legal-prose a { color: rgb(var(--color-brand-teal)); text-decoration: underline; text-underline-offset: 3px; }
+
   /* Ambient radial glow */
   .bg-glow {
     background:
