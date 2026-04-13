@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" fill="none">
+  <!--
+    Option B mark — dual concentric arcs with opposing gaps
+    Outer arc: 320° open, gap at 6 o'clock
+    Inner arc: 320° open, gap at 12 o'clock
+    Creates an orbital / system-in-motion feel
+  -->
+  <defs>
+    <linearGradient id="g" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1A56DB"/>
+      <stop offset="100%" stop-color="#00BFA6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer arc: r=16, 320° arc, gap at bottom (6 o'clock) -->
+  <circle
+    cx="20" cy="20" r="16"
+    stroke="url(#g)" stroke-width="2.5" fill="none"
+    stroke-dasharray="89.36 11.17"
+    stroke-linecap="round"
+    transform="rotate(110 20 20)"/>
+
+  <!-- Inner arc: r=9.5, 320° arc, gap at top (12 o'clock) -->
+  <circle
+    cx="20" cy="20" r="9.5"
+    stroke="url(#g)" stroke-width="2" fill="none"
+    stroke-dasharray="53.06 6.63"
+    stroke-linecap="round"
+    transform="rotate(290 20 20)"/>
+
+  <!-- Center hub dot -->
+  <circle cx="20" cy="20" r="2.5" fill="url(#g)"/>
+</svg>

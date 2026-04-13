@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-brand-dark: 11 20 55;
+  --color-brand-teal: 0 191 166;
+  --color-brand-blue: 26 86 219;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: rgb(var(--color-brand-dark)); }
+::-webkit-scrollbar-thumb { background: rgb(var(--color-brand-blue) / 0.4); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgb(var(--color-brand-teal)); }
+
+@layer utilities {
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, rgb(var(--color-brand-blue)) 0%, rgb(var(--color-brand-teal)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtle dot grid for dark sections */
+  .bg-grid {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  /* Ambient radial glow */
+  .bg-glow {
+    background:
+      radial-gradient(ellipse 65% 55% at 72% 38%, rgb(var(--color-brand-teal) / 0.09) 0%, transparent 70%),
+      radial-gradient(ellipse 45% 40% at 18% 72%, rgb(var(--color-brand-blue) / 0.07) 0%, transparent 60%);
+  }
+}

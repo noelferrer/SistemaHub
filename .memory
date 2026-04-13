@@ -1,0 +1,53 @@
+# SistemaHub — Project Memory
+
+## Status (as of 2026-04-13)
+
+### Completed
+- [x] Workspace folder structure created and documented
+- [x] `brand/` folder — logo placeholder, brand guidelines template
+- [x] `documents/` folder — company profile draft, pitch deck placeholder, proposal template, invoice template
+- [x] `ops/` folder — email setup guide (hello@sistemahub.com), deployment guide
+- [x] `website/` — Next.js 16 + Tailwind + shadcn/ui + Framer Motion scaffolded
+- [x] Website modules: hero, about, services, products, contact
+- [x] Website navigation (sticky, mobile-responsive)
+- [x] Production build verified (no errors)
+
+### Pending / Next Steps
+- [ ] Logo + brand identity (needs designer)
+- [ ] Fill in brand-guidelines.md (colors, typography) once brand is finalized
+- [ ] Register domain: sistemahub.com
+- [ ] Set up hello@sistemahub.com (see ops/email-setup.md)
+- [ ] Add real product URLs to products module once TaoLink + Landlord HQ are live
+- [ ] Replace placeholder copy with final approved content
+- [ ] Deploy website to VPS (see ops/deployment.md)
+
+---
+
+## Key Decisions
+
+### Workspace Structure
+- Root folders: `brand/`, `website/`, `documents/`, `ops/`
+- Numbered prefixes avoided — descriptive folder names are clearer
+- Each folder has a README so any team member can navigate without asking
+
+### Website Architecture
+- Next.js 16, App Router, TypeScript, Tailwind CSS v4
+- shadcn/ui for components, Framer Motion for animations
+- Modular: each page section is a standalone module in `modules/`
+- `"use client"` only where needed (hero for motion, nav for state)
+- Build verified clean: static prerender, 0 errors
+
+### Documents
+- All documents in Markdown — portable, no tool dependency
+- Invoice numbering convention: SH-YYYY-NNN (e.g. SH-2026-001)
+- Company profile covers: who we are, what we do, TaoLink, Landlord HQ
+
+---
+
+## Products
+- **TaoLink HRIS** — HR information system
+- **Landlord HQ** — Property management
+- More TBD
+
+## Contact
+- hello@sistemahub.com

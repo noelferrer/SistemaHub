@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="200" height="40" fill="none">
+  <!-- logo-dark.svg — for use on dark / colored backgrounds -->
+  <defs>
+    <linearGradient id="g" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4D8EFF"/>
+      <stop offset="100%" stop-color="#00D4B8"/>
+    </linearGradient>
+  </defs>
+  <line x1="20" y1="20" x2="20"    y2="8"    stroke="url(#g)" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+  <line x1="20" y1="20" x2="30.39" y2="14"   stroke="url(#g)" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+  <line x1="20" y1="20" x2="30.39" y2="26"   stroke="url(#g)" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+  <line x1="20" y1="20" x2="20"    y2="32"   stroke="url(#g)" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+  <line x1="20" y1="20" x2="9.61"  y2="26"   stroke="url(#g)" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+  <line x1="20" y1="20" x2="9.61"  y2="14"   stroke="url(#g)" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+  <circle cx="20"    cy="8"  r="3" fill="url(#g)" opacity="0.7"/>
+  <circle cx="30.39" cy="14" r="3" fill="url(#g)" opacity="0.7"/>
+  <circle cx="30.39" cy="26" r="3" fill="url(#g)" opacity="0.7"/>
+  <circle cx="20"    cy="32" r="3" fill="url(#g)" opacity="0.7"/>
+  <circle cx="9.61"  cy="26" r="3" fill="url(#g)" opacity="0.7"/>
+  <circle cx="9.61"  cy="14" r="3" fill="url(#g)" opacity="0.7"/>
+  <circle cx="20" cy="20" r="6" fill="url(#g)"/>
+  <text x="52" y="27"
+    font-family="'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif"
+    font-size="20">
+    <tspan fill="#FFFFFF" font-weight="400">Sistema</tspan><tspan fill="#00D4B8" font-weight="700">Hub</tspan>
+  </text>
+</svg>

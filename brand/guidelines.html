@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SistemaHub — Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand-dark:   #0B1437;
+      --brand-teal:   #00BFA6;
+      --brand-blue:   #1A56DB;
+
+      --n-900: #0B1437;
+      --n-700: #2C3E6B;
+      --n-500: #4A5E8A;
+      --n-400: #7B8DB0;
+      --n-200: #D1D9E6;
+      --n-100: #EFF2F7;
+      --n-50:  #F8FAFF;
+
+      --text-primary:   var(--n-900);
+      --text-secondary: var(--n-500);
+      --text-muted:     var(--n-400);
+      --border:         var(--n-200);
+      --bg:             #ffffff;
+
+      --font-display: 'Space Grotesk', Arial, sans-serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --font-mono:    'JetBrains Mono', 'Courier New', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    /* ─── Layout ─── */
+    .layout {
+      display: grid;
+      grid-template-columns: 228px 1fr;
+      min-height: 100vh;
+    }
+
+    /* ─── Sidebar ─── */
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      padding: 36px 20px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .sidebar-logo {
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-logo img { height: 26px; width: auto; }
+
+    .nav-group { margin-bottom: 4px; }
+
+    .nav-section-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 10px 10px 4px;
+      display: block;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 10px;
+      border-radius: 7px;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: background 0.12s, color 0.12s;
+    }
+
+    .nav-link:hover { background: var(--n-100); color: var(--text-primary); }
+
+    .nav-num {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--brand-teal);
+      min-width: 18px;
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ─── Main ─── */
+    main { overflow: auto; }
+
+    /* ─── Cover ─── */
+    .cover {
+      background: var(--brand-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 72px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cover-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .cover-glow {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(0,191,166,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 70%, rgba(26,86,219,0.08) 0%, transparent 60%);
+    }
+
+    .cover-content { position: relative; z-index: 1; }
+
+    .cover-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brand-teal);
+      margin-bottom: 20px;
+    }
+
+    .cover-title {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 7vw, 88px);
+      font-weight: 800;
+      line-height: 0.95;
+      color: #ffffff;
+      letter-spacing: -0.03em;
+      margin-bottom: 28px;
+    }
+
+    .cover-title em {
+      font-style: normal;
+      background: linear-gradient(135deg, #1A56DB, #00BFA6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cover-desc {
+      font-size: 17px;
+      color: rgba(255,255,255,0.38);
+      margin-bottom: 56px;
+      max-width: 480px;
+      line-height: 1.65;
+    }
+
+    .cover-meta {
+      display: flex;
+      gap: 32px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .meta-item { display: flex; flex-direction: column; gap: 3px; }
+
+    .meta-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .meta-value {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ─── Sections ─── */
+    .section {
+      padding: 80px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-header { margin-bottom: 52px; }
+
+    .section-num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--brand-teal);
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 540px;
+      line-height: 1.65;
+    }
+
+    .subsection-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .divider { height: 1px; background: var(--border); margin: 48px 0; }
+
+    /* ─── Logo section ─── */
+    .logo-variants {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+
+    .logo-variant {
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 150px;
+      gap: 20px;
+    }
+
+    .logo-variant + .logo-variant { border-left: 1px solid rgba(255,255,255,0.07); }
+    .logo-variant:nth-child(3)    { border-top: 1px solid var(--border); }
+    .logo-variant:nth-child(4)    { border-top: 1px solid rgba(255,255,255,0.07); }
+
+    .lv-light  { background: var(--n-50); }
+    .lv-white  { background: #ffffff; }
+    .lv-dark   { background: var(--brand-dark); }
+    .lv-mid    { background: #132050; }
+
+    .lv-white  { border-left: 1px solid var(--border) !important; }
+    .lv-white  { border-top: 1px solid var(--border) !important; }
+
+    .logo-variant img  { height: 30px; width: auto; }
+    .lv-icon img       { height: 44px; }
+
+    .variant-name {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .lv-light .variant-name, .lv-white .variant-name { color: var(--text-muted); }
+    .lv-dark  .variant-name, .lv-mid  .variant-name  { color: rgba(255,255,255,0.28); }
+
+    .variant-use {
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .lv-light .variant-use, .lv-white .variant-use { color: var(--text-secondary); }
+    .lv-dark  .variant-use, .lv-mid  .variant-use  { color: rgba(255,255,255,0.35); }
+
+    /* Clear space diagram */
+    .clearspace-diagram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      border: 1.5px dashed var(--brand-teal);
+      border-radius: 10px;
+      background: rgba(0,191,166,0.03);
+      margin-bottom: 12px;
+    }
+
+    .clearspace-diagram img { height: 28px; }
+
+    /* Don'ts grid */
+    .donts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .dont-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .dont-preview {
+      height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--n-50);
+      position: relative;
+    }
+
+    .dont-preview img { height: 24px; }
+
+    .dont-preview::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-bottom: none;
+    }
+
+    .dont-label {
+      padding: 11px 14px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dont-label::before {
+      content: '✕';
+      font-size: 10px;
+      font-weight: 700;
+      color: #DC2626;
+      flex-shrink: 0;
+    }
+
+    /* ─── Colors ─── */
+    .swatch-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .swatch {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .swatch-block { height: 88px; }
+
+    .swatch-info { padding: 12px 14px; }
+
+    .swatch-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .swatch-hex {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .swatch-use {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    .gradient-band {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-bottom: 40px;
+      max-width: 420px;
+    }
+
+    .gradient-block {
+      height: 88px;
+      background: linear-gradient(135deg, #1A56DB 0%, #00BFA6 100%);
+    }
+
+    /* ─── Typography ─── */
+    .typeface-block {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .typeface-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      background: var(--n-50);
+    }
+
+    .typeface-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .typeface-role {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .typeface-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--brand-blue);
+      background: rgba(26,86,219,0.07);
+      padding: 4px 10px;
+      border-radius: 5px;
+    }
+
+    .typeface-weights {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .weight-row {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .weight-row:last-child { border-bottom: none; }
+
+    .weight-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-muted);
+      min-width: 90px;
+      flex-shrink: 0;
+    }
+
+    .weight-sample {
+      font-size: 22px;
+      line-height: 1.1;
+      color: var(--text-primary);
+    }
+
+    /* Type scale */
+    .scale-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .scale-table tr { border-bottom: 1px solid var(--border); }
+    .scale-table tr:last-child { border-bottom: none; }
+
+    .scale-table td {
+      padding: 14px 0;
+      vertical-align: middle;
+    }
+
+    .scale-td-name {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-muted);
+      width: 110px;
+      white-space: nowrap;
+    }
+
+    .scale-td-spec {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--brand-teal);
+      width: 120px;
+      white-space: nowrap;
+    }
+
+    /* ─── Spacing ─── */
+    .spacing-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .spacing-table tr { border-bottom: 1px solid var(--border); }
+    .spacing-table tr:last-child { border-bottom: none; }
+    .spacing-table td { padding: 12px 0; vertical-align: middle; }
+
+    .sp-token { font-family: var(--font-mono); font-size: 11px; color: var(--text-muted); width: 110px; }
+    .sp-px    { font-family: var(--font-mono); font-size: 11px; color: var(--brand-teal); width: 60px; }
+    .sp-bar   { padding-right: 24px; }
+
+    .bar-fill {
+      height: 20px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #1A56DB, #00BFA6);
+      opacity: 0.55;
+    }
+
+    .sp-use { font-size: 12px; color: var(--text-secondary); }
+
+    /* ─── Voice ─── */
+    .traits-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .trait-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 22px;
+    }
+
+    .trait-marker {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: linear-gradient(135deg, #1A56DB, #00BFA6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      font-size: 13px;
+    }
+
+    .trait-name {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .trait-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.55; }
+
+    .voice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .voice-card {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .voice-head {
+      padding: 10px 16px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .voice-head.do   { background: #ECFDF5; color: #059669; }
+    .voice-head.dont { background: #FEF2F2; color: #DC2626; }
+
+    .voice-body { padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+
+    .voice-line {
+      font-size: 13.5px;
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding-left: 14px;
+      border-left: 2px solid var(--border);
+    }
+
+    .voice-card.do   .voice-line { border-left-color: #10B981; }
+    .voice-card.dont .voice-line { border-left-color: #EF4444; }
+
+    /* ─── Active nav ─── */
+    .nav-link.is-active {
+      background: var(--n-100);
+      color: var(--brand-dark);
+      font-weight: 600;
+    }
+    .nav-link.is-active .nav-num { color: var(--brand-teal); }
+
+    /* ─── Swatch interactions ─── */
+    .swatch {
+      transition: box-shadow 0.15s, transform 0.15s;
+    }
+    .swatch:hover {
+      box-shadow: 0 4px 16px rgba(11,20,55,0.10);
+      transform: translateY(-2px);
+    }
+    .swatch-hex {
+      cursor: pointer;
+      transition: color 0.12s;
+      position: relative;
+    }
+    .swatch-hex:hover { color: var(--brand-teal); }
+    .swatch-hex::after {
+      content: 'copy';
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--brand-teal);
+      margin-left: 6px;
+      opacity: 0;
+      transition: opacity 0.12s;
+    }
+    .swatch-hex:hover::after { opacity: 1; }
+
+    /* ─── Copy toast ─── */
+    .copy-toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      background: var(--brand-dark);
+      color: rgba(255,255,255,0.9);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      opacity: 0;
+      transition: opacity 0.18s, transform 0.18s;
+      pointer-events: none;
+      z-index: 999;
+      border: 1px solid rgba(0,191,166,0.25);
+    }
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ─── Option badges ─── */
+    .option-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .option-badge-active {
+      background: rgba(0,191,166,0.12);
+      color: var(--brand-teal);
+    }
+    .option-badge-alt {
+      background: var(--n-100);
+      color: var(--text-muted);
+    }
+
+    /* ─── Active compare card ─── */
+    .compare-card-active {
+      background: rgba(0,191,166,0.04) !important;
+      border-left: 2px solid var(--brand-teal) !important;
+    }
+
+    /* ─── Scroll progress bar ─── */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 228px;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #1A56DB, #00BFA6);
+      transform-origin: left;
+      transform: scaleX(0);
+      z-index: 50;
+      transition: transform 0.1s linear;
+    }
+
+    /* ─── Section fade-in ─── */
+    .section {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .section.visible, .cover { opacity: 1; transform: none; }
+
+    /* ─── Cover refinements ─── */
+    .cover-title {
+      letter-spacing: -0.04em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ── Sidebar ── -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="logo/option-b/logo-primary.svg" alt="SistemaHub">
+    </div>
+
+    <nav class="nav-group">
+      <span class="nav-section-label">Guidelines</span>
+      <a href="#cover"      class="nav-link"><span class="nav-num">00</span> Overview</a>
+      <a href="#logo"       class="nav-link"><span class="nav-num">01</span> Logo Options</a>
+      <a href="#colors"     class="nav-link"><span class="nav-num">02</span> Colors</a>
+      <a href="#typography" class="nav-link"><span class="nav-num">03</span> Typography</a>
+      <a href="#spacing"    class="nav-link"><span class="nav-num">04</span> Spacing</a>
+      <a href="#voice"      class="nav-link"><span class="nav-num">05</span> Voice & Tone</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <p>SistemaHub v1.0</p>
+      <p>SistemaHub</p>
+      <p style="margin-top:6px;">April 2026</p>
+    </div>
+  </aside>
+
+  <!-- ── Main ── -->
+  <main>
+
+    <!-- 00 Cover -->
+    <section class="cover" id="cover">
+      <div class="cover-grid"></div>
+      <div class="cover-glow"></div>
+      <div class="cover-content">
+        <p class="cover-eyebrow">SistemaHub · Brand Identity</p>
+        <h1 class="cover-title">Sistema<em>Hub</em><br>Brand<br>Guidelines</h1>
+        <p class="cover-desc">
+          The visual language of SistemaHub — a system for how we look, speak, and present ourselves to the world.
+        </p>
+        <div class="cover-meta">
+          <div class="meta-item">
+            <span class="meta-label">Version</span>
+            <span class="meta-value">1.0</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Status</span>
+            <span class="meta-value">Active</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Updated</span>
+            <span class="meta-value">Apr 2026</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Owner</span>
+            <span class="meta-value">Aintigravity</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 01 Logo -->
+    <section class="section" id="logo">
+      <div class="section-header">
+        <span class="section-num">01 / Logo</span>
+        <h2 class="section-title">The Logo</h2>
+        <p class="section-desc">
+          Two options are presented for selection — choose one direction before moving into production. Both share the same color system and alignment rules. Option A uses a hexagonal hub mark with Plus Jakarta Sans. Option B uses a dual-arc orbital mark with Space Grotesk.
+        </p>
+      </div>
+
+      <!-- Side-by-side comparison -->
+      <span class="subsection-label">Compare options</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2px; border-radius:12px; overflow:hidden; border:1px solid var(--border); margin-bottom:52px;">
+
+        <!-- Option A — Alternate -->
+        <div style="background:var(--n-50); padding:36px 40px; opacity:0.68;">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
+            <p style="font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted);">Option A · Hub Mark</p>
+            <span class="option-badge option-badge-alt">Alternate</span>
+          </div>
+          <img src="logo/logo-primary.svg" alt="Option A" style="height:30px; display:block; margin-bottom:20px;">
+          <p style="font-size:12px; color:var(--text-secondary); line-height:1.5;">Hexagonal hub — 6 nodes + center. More literal "hub" concept. Warmer, approachable.</p>
+          <p style="font-size:11px; color:var(--text-muted); margin-top:8px; font-family:'JetBrains Mono','Courier New',monospace;">Font: Plus Jakarta Sans</p>
+        </div>
+
+        <!-- Option B — Active -->
+        <div class="compare-card-active" style="padding:36px 40px;">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:20px;">
+            <p style="font-size:10px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--brand-teal);">Option B · Orbital Mark</p>
+            <span class="option-badge option-badge-active">Active ✓</span>
+          </div>
+          <img src="logo/option-b/logo-primary.svg" alt="Option B" style="height:30px; display:block; margin-bottom:20px;">
+          <p style="font-size:12px; color:var(--text-secondary); line-height:1.5;">Dual concentric arcs with opposing gaps. More abstract, scales to 16px cleanly. Precise, technical.</p>
+          <p style="font-size:11px; color:var(--text-muted); margin-top:8px; font-family:'JetBrains Mono','Courier New',monospace;">Font: Space Grotesk</p>
+        </div>
+      </div>
+
+      <!-- Option A Variants -->
+      <span class="subsection-label">Alternate Option · Hub Mark · Plus Jakarta Sans</span>
+      <div class="logo-variants">
+        <div class="logo-variant lv-light">
+          <div class="variant-name">Primary</div>
+          <img src="logo/logo-primary.svg" alt="SistemaHub Primary">
+          <div class="variant-use">Default. Use on light gray and off-white surfaces.</div>
+        </div>
+        <div class="logo-variant lv-dark">
+          <div class="variant-name">Dark</div>
+          <img src="logo/logo-dark.svg" alt="SistemaHub Dark">
+          <div class="variant-use">For dark navy, black, or saturated color backgrounds.</div>
+        </div>
+        <div class="logo-variant lv-white" style="border-top:1px solid var(--border)!important;">
+          <div class="variant-name">Light</div>
+          <img src="logo/logo-light.svg" alt="SistemaHub Light">
+          <div class="variant-use">For pure white backgrounds and print contexts.</div>
+        </div>
+        <div class="logo-variant lv-mid lv-icon">
+          <div class="variant-name">Mark only</div>
+          <img src="logo/logo-icon.svg" alt="SistemaHub Icon">
+          <div class="variant-use">Favicon, app icon, avatar, small-scale use.</div>
+        </div>
+      </div>
+
+      <!-- Clear space -->
+      <span class="subsection-label">Clear space</span>
+      <p style="font-size:14px; color:var(--text-secondary); margin-bottom:20px; max-width:480px; line-height:1.6;">
+        Always maintain clear space equal to the height of the icon around all sides of the logo. Never crowd it with other elements or edges.
+      </p>
+      <div style="margin-bottom:40px;">
+        <div class="clearspace-diagram">
+          <img src="logo/option-b/logo-primary.svg" alt="SistemaHub">
+        </div>
+        <p style="font-size:12px; color:var(--text-muted); margin-top:8px;">The dashed border represents the required minimum clear space.</p>
+      </div>
+
+      <!-- Minimum sizes -->
+      <span class="subsection-label">Minimum sizes</span>
+      <div style="display:grid; grid-template-columns: repeat(2, auto) 1fr; gap:16px; margin-bottom:48px; max-width:480px;">
+        <div style="border:1px solid var(--border); border-radius:8px; padding:16px 20px; text-align:center;">
+          <div style="font-family:var(--font-mono); font-size:18px; font-weight:500; color:var(--brand-teal); margin-bottom:4px;">120px</div>
+          <div style="font-size:11px; color:var(--text-muted);">Full logo, digital</div>
+        </div>
+        <div style="border:1px solid var(--border); border-radius:8px; padding:16px 20px; text-align:center;">
+          <div style="font-family:var(--font-mono); font-size:18px; font-weight:500; color:var(--brand-teal); margin-bottom:4px;">24px</div>
+          <div style="font-size:11px; color:var(--text-muted);">Mark only, digital</div>
+        </div>
+      </div>
+
+      <!-- Don'ts -->
+      <span class="subsection-label">Don'ts</span>
+      <div class="donts-grid">
+        <div class="dont-card">
+          <div class="dont-preview">
+            <img src="logo/option-b/logo-primary.svg" style="transform:scaleX(1.7); height:20px;" alt="">
+          </div>
+          <div class="dont-label">Stretch or distort the proportions</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-preview" style="background:linear-gradient(135deg,#e879f9,#7c3aed);">
+            <img src="logo/option-b/logo-primary.svg" style="height:20px;" alt="">
+          </div>
+          <div class="dont-label">Place on busy or clashing backgrounds</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-preview">
+            <img src="logo/option-b/logo-primary.svg" style="height:20px; opacity:0.25;" alt="">
+          </div>
+          <div class="dont-label">Reduce opacity or ghost the logo</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-preview">
+            <img src="logo/option-b/logo-primary.svg" style="height:20px; transform:rotate(-15deg);" alt="">
+          </div>
+          <div class="dont-label">Rotate or skew the logo</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-preview" style="background:#0B1437;">
+            <img src="logo/option-b/logo-primary.svg" style="height:20px;" alt="">
+          </div>
+          <div class="dont-label">Use primary logo on dark backgrounds</div>
+        </div>
+        <div class="dont-card">
+          <div class="dont-preview">
+            <img src="logo/option-b/logo-primary.svg" style="height:12px;" alt="">
+          </div>
+          <div class="dont-label">Use below minimum size</div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Option B Variants -->
+      <span class="subsection-label">Active Option · Orbital Mark · Space Grotesk</span>
+      <p style="font-size:14px; color:var(--text-secondary); margin-bottom:28px; max-width:520px; line-height:1.65;">
+        Two concentric arcs with opposing gaps — outer open at bottom, inner open at top. More abstract than the hub mark; holds at 16px as a favicon. Paired with Space Grotesk for a technical, geometric feel.
+      </p>
+
+      <div class="logo-variants" style="margin-bottom:0;">
+        <div class="logo-variant lv-light">
+          <div class="variant-name">Primary</div>
+          <img src="logo/option-b/logo-primary.svg" alt="SistemaHub Option B Primary">
+          <div class="variant-use">Default. Use on light gray and off-white surfaces.</div>
+        </div>
+        <div class="logo-variant lv-dark">
+          <div class="variant-name">Dark</div>
+          <img src="logo/option-b/logo-dark.svg" alt="SistemaHub Option B Dark">
+          <div class="variant-use">For dark navy, black, or saturated color backgrounds.</div>
+        </div>
+        <div class="logo-variant lv-white" style="border-top:1px solid var(--border)!important;">
+          <div class="variant-name">Light</div>
+          <img src="logo/option-b/logo-light.svg" alt="SistemaHub Option B Light">
+          <div class="variant-use">For pure white backgrounds and print contexts.</div>
+        </div>
+        <div class="logo-variant lv-mid lv-icon">
+          <div class="variant-name">Mark only</div>
+          <img src="logo/option-b/logo-icon.svg" alt="SistemaHub Option B Icon">
+          <div class="variant-use">Favicon, app icon, avatar, small-scale use.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Colors -->
+    <section class="section" id="colors">
+      <div class="section-header">
+        <span class="section-num">02 / Colors</span>
+        <h2 class="section-title">Color Palette</h2>
+        <p class="section-desc">
+          A navy-to-teal system. The dark anchor communicates structure and trust; the teal accent communicates momentum and precision. The blue provides a secondary action color.
+        </p>
+      </div>
+
+      <span class="subsection-label">Primary palette</span>
+      <div class="swatch-row">
+        <div class="swatch">
+          <div class="swatch-block" style="background:#0B1437;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Brand Dark</p>
+            <p class="swatch-hex">#0B1437</p>
+            <p class="swatch-use">Text, headers, dark sections, nav</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#00BFA6;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Brand Teal</p>
+            <p class="swatch-hex">#00BFA6</p>
+            <p class="swatch-use">Primary accent, CTAs, highlights, "Hub"</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#1A56DB;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Brand Blue</p>
+            <p class="swatch-hex">#1A56DB</p>
+            <p class="swatch-use">Links, secondary actions, gradient start</p>
+          </div>
+        </div>
+      </div>
+
+      <span class="subsection-label">Brand gradient</span>
+      <div class="gradient-band">
+        <div class="gradient-block"></div>
+        <div class="swatch-info">
+          <p class="swatch-name">Blue → Teal</p>
+          <p class="swatch-hex">#1A56DB → #00BFA6 · 135°</p>
+          <p class="swatch-use">Icon marks, hero accents, data visualizations, illustrations</p>
+        </div>
+      </div>
+
+      <span class="subsection-label">Neutral palette</span>
+      <div class="swatch-row">
+        <div class="swatch">
+          <div class="swatch-block" style="background:#0B1437;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Neutral 900</p>
+            <p class="swatch-hex">#0B1437</p>
+            <p class="swatch-use">Primary text</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#2C3E6B;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Neutral 700</p>
+            <p class="swatch-hex">#2C3E6B</p>
+            <p class="swatch-use">Secondary text, subheadings</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#7B8DB0;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Neutral 400</p>
+            <p class="swatch-hex">#7B8DB0</p>
+            <p class="swatch-use">Muted text, placeholders, captions</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#D1D9E6; border-bottom:1px solid #e5e7eb;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Neutral 200</p>
+            <p class="swatch-hex">#D1D9E6</p>
+            <p class="swatch-use">Borders, dividers, rules</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#EFF2F7; border-bottom:1px solid #e5e7eb;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Neutral 100</p>
+            <p class="swatch-hex">#EFF2F7</p>
+            <p class="swatch-use">Card and surface backgrounds</p>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-block" style="background:#F8FAFF; border-bottom:1px solid #e5e7eb;"></div>
+          <div class="swatch-info">
+            <p class="swatch-name">Neutral 50</p>
+            <p class="swatch-hex">#F8FAFF</p>
+            <p class="swatch-use">Page background (slight blue tint)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Typography -->
+    <section class="section" id="typography">
+      <div class="section-header">
+        <span class="section-num">03 / Typography</span>
+        <h2 class="section-title">Typography</h2>
+        <p class="section-desc">
+          Display font choice is tied to logo selection. Option A uses Plus Jakarta Sans — geometric, warm, approachable. Option B uses Space Grotesk — more technical and precise. Both share Inter for body copy and JetBrains Mono for code.
+        </p>
+      </div>
+
+      <!-- Plus Jakarta Sans -->
+      <span class="subsection-label">Alternate Display Typeface · Option A</span>
+      <div class="typeface-block">
+        <div class="typeface-header">
+          <div>
+            <p class="typeface-name">Plus Jakarta Sans</p>
+            <p class="typeface-role">Headings · Display · UI labels · Logo wordmark</p>
+          </div>
+          <span class="typeface-badge">fonts.google.com</span>
+        </div>
+        <div class="typeface-weights">
+          <div class="weight-row">
+            <span class="weight-tag">300 · Light</span>
+            <span class="weight-sample" style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:300;">Build systems that scale.</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-tag">400 · Regular</span>
+            <span class="weight-sample" style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:400;">Build systems that scale.</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-tag">600 · Semibold</span>
+            <span class="weight-sample" style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:600;">Build systems that scale.</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-tag">700 · Bold</span>
+            <span class="weight-sample" style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:700;">Build systems that scale.</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-tag">800 · ExtraBold</span>
+            <span class="weight-sample" style="font-family:'Plus Jakarta Sans',sans-serif; font-weight:800;">Build systems that scale.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Space Grotesk -->
+      <span class="subsection-label" style="margin-top:32px; display:block;">Active Display Typeface · Option B <span class="option-badge option-badge-active" style="vertical-align:middle;">Active ✓</span></span>
+      <div class="typeface-block">
+        <div class="typeface-header">
+          <div>
+            <p class="typeface-name">Space Grotesk</p>
+            <p class="typeface-role">Headings · Display · UI labels · Logo wordmark (Option B)</p>
+          </div>
+          <span class="typeface-badge">fonts.google.com</span>
+        </div>
+        <div class="typeface-weights">
+          <div class="weight-row">
+            <span class="weight-tag">300 · Light</span>
+            <span class="weight-sample" style="font-family:'Space Grotesk',sans-serif; font-weight:300;">Build systems that scale.</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-tag">400 · Regular</span>
+            <span class="weight-sample" style="font-family:'Space Grotesk',sans-serif; font-weight:400;">Build systems that scale.</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-tag">500 · Medium</span>
+            <span class="weight-sample" style="font-family:'Space Grotesk',sans-serif; font-weight:500;">Build systems that scale.</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-tag">600 · Semibold</span>
+            <span class="weight-sample" style="font-family:'Space Grotesk',sans-serif; font-weight:600;">Build systems that scale.</span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-tag">700 · Bold</span>
+            <span class="weight-sample" style="font-family:'Space Grotesk',sans-serif; font-weight:700;">Build systems that scale.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inter -->
+      <span class="subsection-label" style="margin-top:32px; display:block;">Body Typeface · Both Options</span>
+      <div class="typeface-block">
+        <div class="typeface-header">
+          <div>
+            <p class="typeface-name">Inter</p>
+            <p class="typeface-role">Body copy · Descriptions · UI text · Data</p>
+          </div>
+          <span class="typeface-badge">rsms.me/inter</span>
+        </div>
+        <div class="typeface-weights">
+          <div class="weight-row">
+            <span class="weight-tag">400 · Regular</span>
+            <span class="weight-sample" style="font-family:'Inter',sans-serif; font-weight:400; font-size:16px;">
+              We design and build software systems tailored to how your business actually works.
+            </span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-tag">500 · Medium</span>
+            <span class="weight-sample" style="font-family:'Inter',sans-serif; font-weight:500; font-size:16px;">
+              We design and build software systems tailored to how your business actually works.
+            </span>
+          </div>
+          <div class="weight-row">
+            <span class="weight-tag">600 · Semibold</span>
+            <span class="weight-sample" style="font-family:'Inter',sans-serif; font-weight:600; font-size:16px;">
+              Feature titles, labels, and table headers.
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Type scale -->
+      <div class="divider"></div>
+      <span class="subsection-label">Type scale</span>
+      <table class="scale-table">
+        <tr>
+          <td class="scale-td-name">Display</td>
+          <td class="scale-td-spec">72 / 800 / −3%</td>
+          <td>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(28px,5vw,72px); font-weight:800; letter-spacing:-0.03em; line-height:0.95;">
+              Sistema<span style="color:var(--brand-teal);">Hub</span>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td class="scale-td-name">Heading 1</td>
+          <td class="scale-td-spec">48 / 700 / −2%</td>
+          <td>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(22px,4vw,48px); font-weight:700; letter-spacing:-0.02em; line-height:1.05;">
+              Your hub for modern software
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td class="scale-td-name">Heading 2</td>
+          <td class="scale-td-spec">36 / 700 / −2%</td>
+          <td>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:clamp(20px,3vw,36px); font-weight:700; letter-spacing:-0.02em;">
+              Products built to perform
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td class="scale-td-name">Heading 3</td>
+          <td class="scale-td-spec">24 / 600 / −1%</td>
+          <td>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:24px; font-weight:600; letter-spacing:-0.01em;">
+              Modular by design
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td class="scale-td-name">Body Large</td>
+          <td class="scale-td-spec">18 / 400</td>
+          <td>
+            <span style="font-family:'Inter',sans-serif; font-size:18px;">
+              Scalable software for businesses that need it to work.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td class="scale-td-name">Body</td>
+          <td class="scale-td-spec">16 / 400</td>
+          <td>
+            <span style="font-family:'Inter',sans-serif; font-size:16px; color:var(--text-secondary);">
+              We build HR systems, property tools, and custom software for real business needs.
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td class="scale-td-name">Small</td>
+          <td class="scale-td-spec">13 / 400</td>
+          <td>
+            <span style="font-family:'Inter',sans-serif; font-size:13px; color:var(--text-muted);">
+              Labels, timestamps, metadata, captions
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td class="scale-td-name">Mono</td>
+          <td class="scale-td-spec">13 / 400</td>
+          <td>
+            <span style="font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--brand-blue);">
+              npm install @sistemahub/core
+            </span>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- 04 Spacing -->
+    <section class="section" id="spacing">
+      <div class="section-header">
+        <span class="section-num">04 / Spacing</span>
+        <h2 class="section-title">Spacing System</h2>
+        <p class="section-desc">
+          An 8px base unit. All spacing values are multiples of 4. Consistent rhythm creates a layout that feels intentional — not arbitrary.
+        </p>
+      </div>
+
+      <table class="spacing-table">
+        <tr>
+          <td class="sp-token">space-1</td>
+          <td class="sp-px">4px</td>
+          <td class="sp-bar"><div class="bar-fill" style="width:4px;"></div></td>
+          <td class="sp-use">Icon gaps, inline nudges</td>
+        </tr>
+        <tr>
+          <td class="sp-token">space-2</td>
+          <td class="sp-px">8px</td>
+          <td class="sp-bar"><div class="bar-fill" style="width:8px;"></div></td>
+          <td class="sp-use">Tight grouping, badge padding</td>
+        </tr>
+        <tr>
+          <td class="sp-token">space-3</td>
+          <td class="sp-px">12px</td>
+          <td class="sp-bar"><div class="bar-fill" style="width:12px;"></div></td>
+          <td class="sp-use">List item gaps</td>
+        </tr>
+        <tr>
+          <td class="sp-token">space-4</td>
+          <td class="sp-px">16px</td>
+          <td class="sp-bar"><div class="bar-fill" style="width:16px;"></div></td>
+          <td class="sp-use">Default padding, button padding</td>
+        </tr>
+        <tr>
+          <td class="sp-token">space-6</td>
+          <td class="sp-px">24px</td>
+          <td class="sp-bar"><div class="bar-fill" style="width:24px;"></div></td>
+          <td class="sp-use">Card padding, column gaps</td>
+        </tr>
+        <tr>
+          <td class="sp-token">space-8</td>
+          <td class="sp-px">32px</td>
+          <td class="sp-bar"><div class="bar-fill" style="width:32px;"></div></td>
+          <td class="sp-use">Between sections (tight)</td>
+        </tr>
+        <tr>
+          <td class="sp-token">space-10</td>
+          <td class="sp-px">40px</td>
+          <td class="sp-bar"><div class="bar-fill" style="width:40px;"></div></td>
+          <td class="sp-use">Section padding (mobile)</td>
+        </tr>
+        <tr>
+          <td class="sp-token">space-16</td>
+          <td class="sp-px">64px</td>
+          <td class="sp-bar"><div class="bar-fill" style="width:64px;"></div></td>
+          <td class="sp-use">Section padding (tablet)</td>
+        </tr>
+        <tr>
+          <td class="sp-token">space-20</td>
+          <td class="sp-px">80px</td>
+          <td class="sp-bar"><div class="bar-fill" style="width:80px;"></div></td>
+          <td class="sp-use">Section padding (desktop)</td>
+        </tr>
+        <tr>
+          <td class="sp-token">space-24</td>
+          <td class="sp-px">96px</td>
+          <td class="sp-bar"><div class="bar-fill" style="width:96px;"></div></td>
+          <td class="sp-use">Hero padding, large feature gaps</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- 05 Voice & Tone -->
+    <section class="section" id="voice">
+      <div class="section-header">
+        <span class="section-num">05 / Voice & Tone</span>
+        <h2 class="section-title">Voice & Tone</h2>
+        <p class="section-desc">
+          SistemaHub sounds like a technical expert who doesn't need to impress you. Precise, grounded, forward-moving. We describe what we build, not how "passionate" we are about building it.
+        </p>
+      </div>
+
+      <!-- Traits -->
+      <span class="subsection-label">Brand personality</span>
+      <div class="traits-grid">
+        <div class="trait-card">
+          <div class="trait-marker">⬡</div>
+          <p class="trait-name">Precise</p>
+          <p class="trait-desc">We say exactly what we mean. No filler. No vague promises. If we ship it, we describe it exactly.</p>
+        </div>
+        <div class="trait-card">
+          <div class="trait-marker">↗</div>
+          <p class="trait-name">Forward-moving</p>
+          <p class="trait-desc">Active voice. Present tense. We build, we ship, we solve. Language that has momentum.</p>
+        </div>
+        <div class="trait-card">
+          <div class="trait-marker">◎</div>
+          <p class="trait-name">Grounded</p>
+          <p class="trait-desc">No hype. No "revolutionary." We let the work speak. Clients get plain language, not pitch deck poetry.</p>
+        </div>
+      </div>
+
+      <!-- Examples -->
+      <span class="subsection-label">Writing examples</span>
+      <div class="voice-grid">
+        <div class="voice-card do">
+          <div class="voice-head do">Do — On brand</div>
+          <div class="voice-body">
+            <p class="voice-line">
+              "We build HR and property management systems for businesses that need software to actually work."
+            </p>
+            <p class="voice-line">
+              "TaoLink HRIS handles onboarding, contracts, and payroll — without the bloat."
+            </p>
+            <p class="voice-line">
+              "Every module is independent. Swap one out without touching the rest."
+            </p>
+            <p class="voice-line">
+              "Landlord HQ: property management built for landlords who manage at scale."
+            </p>
+          </div>
+        </div>
+        <div class="voice-card dont">
+          <div class="voice-head dont">Don't — Off brand</div>
+          <div class="voice-body">
+            <p class="voice-line">
+              "We leverage cutting-edge synergies to revolutionize your business workflows!"
+            </p>
+            <p class="voice-line">
+              "Our game-changing platform empowers teams to unlock their full potential."
+            </p>
+            <p class="voice-line">
+              "We're passionate about delivering value through innovative solutions."
+            </p>
+            <p class="voice-line">
+              "Transforming the way businesses think about operations — reimagined."
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Formatting rules -->
+      <span class="subsection-label">Formatting rules</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <div style="border:1px solid var(--border); border-radius:10px; padding:20px;">
+          <p style="font-size:13px; font-weight:600; color:var(--text-primary); margin-bottom:12px;">Capitalization</p>
+          <p style="font-size:13px; color:var(--text-secondary); line-height:1.6;">
+            Product names are always capitalized: <strong>TaoLink HRIS</strong>, <strong>Landlord HQ</strong>, <strong>SistemaHub</strong>. Never all-caps in running text. Never all-lowercase for branding.
+          </p>
+        </div>
+        <div style="border:1px solid var(--border); border-radius:10px; padding:20px;">
+          <p style="font-size:13px; font-weight:600; color:var(--text-primary); margin-bottom:12px;">Punctuation</p>
+          <p style="font-size:13px; color:var(--text-secondary); line-height:1.6;">
+            Use em-dashes (—) without spaces for asides. Use sentence case for headings. Avoid exclamation marks in product copy — they undercut the tone. Oxford comma always.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Scroll progress bar -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Copy toast -->
+<div class="copy-toast" id="copyToast"></div>
+
+<script>
+  // ─── Scroll progress ───
+  const progressBar = document.getElementById('scrollProgress');
+  const main = document.querySelector('main');
+  main.addEventListener('scroll', () => {
+    const { scrollTop, scrollHeight, clientHeight } = main;
+    const pct = scrollTop / (scrollHeight - clientHeight);
+    progressBar.style.transform = `scaleX(${pct})`;
+  });
+
+  // ─── Active nav via IntersectionObserver ───
+  const sections = document.querySelectorAll('main section[id]');
+  const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
+
+  const navObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, {
+    root: main,
+    threshold: 0.25,
+    rootMargin: '-10% 0px -55% 0px'
+  });
+
+  sections.forEach(s => navObserver.observe(s));
+
+  // ─── Section fade-in on scroll ───
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { root: main, threshold: 0.06 });
+
+  document.querySelectorAll('.section').forEach(s => fadeObserver.observe(s));
+
+  // ─── Click-to-copy hex codes ───
+  const toast = document.getElementById('copyToast');
+  let toastTimer;
+
+  document.querySelectorAll('.swatch-hex').forEach(el => {
+    el.setAttribute('title', 'Click to copy');
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', () => {
+      const hex = el.textContent.trim().split(' ')[0]; // handle "→" in gradient hex
+      navigator.clipboard.writeText(hex).then(() => {
+        toast.textContent = `Copied  ${hex}`;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('show'), 2000);
+      });
+    });
+  });
+
+  // ─── Smooth scroll for sidebar nav links ───
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+
+</body>
+</html>
