@@ -2,11 +2,12 @@
   <!--
     Option B — light variant (explicitly for white backgrounds)
     Font: Space Grotesk (google.com/fonts)
+    Gradient: Brand Rose → Brand Orange (#ae445a → #f39f5a)
   -->
   <defs>
     <linearGradient id="g" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#1A56DB"/>
-      <stop offset="100%" stop-color="#00BFA6"/>
+      <stop offset="0%" stop-color="#ae445a"/>
+      <stop offset="100%" stop-color="#f39f5a"/>
     </linearGradient>
   </defs>
 
@@ -26,6 +27,6 @@
     font-family="'Space Grotesk', system-ui, -apple-system, sans-serif"
     font-size="20"
     letter-spacing="-0.3">
-    <tspan fill="#0B1437" font-weight="400">Sistema</tspan><tspan fill="#00BFA6" font-weight="700">Hub</tspan>
+    <tspan fill="#0B1437" font-weight="400">Sistema</tspan><tspan fill="#f39f5a" font-weight="700">Hub</tspan>
   </text>
 </svg>

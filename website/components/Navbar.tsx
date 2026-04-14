@@ -40,16 +40,17 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+      <div className={`max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-16' : 'h-24'}`}>
 
         {/* Logo */}
         <Link href="/" className="flex-shrink-0">
           <Image
             src="/logo/option-b/logo-dark.svg"
             alt="SistemaHub"
-            width={175}
-            height={35}
+            width={scrolled ? 175 : 210}
+            height={scrolled ? 35 : 42}
             priority
+            className="transition-all duration-300"
           />
         </Link>
 
@@ -59,7 +60,7 @@ export default function Navbar() {
             <button
               key={label}
               onClick={() => handleNavClick(href)}
-              className="px-4 py-2 text-sm text-n-400 hover:text-n-50 transition-colors rounded-lg hover:bg-white/[0.04] font-medium"
+              className={`font-medium text-n-400 hover:text-n-50 transition-all duration-300 rounded-lg hover:bg-white/[0.04] ${scrolled ? 'px-4 py-2 text-sm' : 'px-5 py-2.5 text-base'}`}
             >
               {label}
             </button>
@@ -70,7 +71,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3">
           <button
             onClick={() => handleNavClick('#contact')}
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal border border-brand-teal/25 rounded-lg px-4 py-2 hover:bg-brand-teal/10 hover:border-brand-teal/50 transition-all"
+            className={`inline-flex items-center gap-1.5 font-semibold text-brand-teal border border-brand-teal/25 rounded-lg hover:bg-brand-teal/10 hover:border-brand-teal/50 transition-all duration-300 ${scrolled ? 'text-sm px-4 py-2' : 'text-base px-5 py-2.5'}`}
           >
             Get in touch
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">

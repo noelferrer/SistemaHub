@@ -4,11 +4,12 @@
     Outer arc: 320° open, gap at 6 o'clock
     Inner arc: 320° open, gap at 12 o'clock
     Creates an orbital / system-in-motion feel
+    Gradient: Brand Rose → Brand Orange (#ae445a → #f39f5a)
   -->
   <defs>
     <linearGradient id="g" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#1A56DB"/>
-      <stop offset="100%" stop-color="#00BFA6"/>
+      <stop offset="0%" stop-color="#ae445a"/>
+      <stop offset="100%" stop-color="#f39f5a"/>
     </linearGradient>
   </defs>
 
