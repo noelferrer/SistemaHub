@@ -62,14 +62,16 @@ npm install
 # 4. Build the app
 npm run build
 
-# 5. Start or restart with PM2
-pm2 start npm --name "sistemahub" --cwd "$(pwd)" -- start
-# or if already running:
+# 5. Restart with PM2 (normal deploys — already registered)
 pm2 restart sistemahub
+
+# If re-registering from scratch (e.g. after PM2 reset):
+# Nginx routes sistemahub.com → port 3002. Must set PORT=3002.
+PORT=3002 pm2 start npm --name "sistemahub" --cwd "/var/www/sistemahub/website" -- start
+pm2 save
 ```
 
-> **One-time VPS migration (if upgrading from the old layout where code was at repo root):**
-> Before your next `git pull`, stop PM2 (`pm2 stop sistemahub`), then `git pull`, then re-register PM2 with the new `--cwd` pointing at `website/` as shown above. Old root-level `node_modules/` and `.next/` on the VPS can be deleted — the build now writes to `website/.next/`.
+> **Port note:** Nginx proxies `sistemahub.com` to `127.0.0.1:3002`. Always start with `PORT=3002` — Next.js defaults to 3000 and will 502 without it.
 
 ---
 
