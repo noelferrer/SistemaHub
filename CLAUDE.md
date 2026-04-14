@@ -33,19 +33,31 @@ SistemaHub is the main marketing and portfolio website. It serves as the company
 
 ---
 
-## Architecture
+## Workspace Layout
 
-Follows the global modular architecture standard (see `~/.claude/CLAUDE.md`):
+The repo root holds company-wide assets; the website itself is self-contained in `website/`:
 
-- `base/` — Next.js app shell, layout, global config, providers
-- `modules/` — Each section of the site is a self-contained module:
-  - `modules/hero/` — Landing/hero section
-  - `modules/about/` — Company introduction
-  - `modules/services/` — Services offered
-  - `modules/products/` — Showcase of webapps (TaoLink, Landlord HQ, etc.)
-  - `modules/contact/` — Contact form or CTA
-- `public/` — Static assets (images, icons, fonts)
-- `components/` — Shared UI primitives used across modules
+- `website/` — The full Next.js website. Portable: copy this folder anywhere and it runs.
+- `brand/` — Logo files, brand guidelines, colors, typography
+- `documents/` — Company profile, pitch deck, proposals, invoice templates
+- `ops/` — Deployment & infrastructure docs
+
+## Website Architecture
+
+Inside `website/`, following the global modular architecture standard (see `~/.claude/CLAUDE.md`):
+
+- `website/app/` — Next.js app shell, layout, global config
+- `website/base/` — Providers and shared base setup
+- `website/modules/` — Each section of the site is a self-contained module:
+  - `hero/` — Landing/hero section
+  - `about/` — Company introduction
+  - `services/` — Services offered
+  - `products/` — Showcase of webapps (TaoLink, Landlord HQ, etc.)
+  - `contact/` — Contact form or CTA
+  - `theme-switcher/` — Theme switcher
+  - `legal/` — Legal page layout (for terms & privacy)
+- `website/components/` — Shared UI (Navbar, Footer)
+- `website/public/` — Static assets (images, icons)
 
 Each module is independently editable and can be disabled without affecting others.
 
@@ -53,13 +65,15 @@ Each module is independently editable and can be disabled without affecting othe
 
 ## Deployment
 
-Self-hosted on VPS:
+Self-hosted on VPS. Full instructions in `ops/deployment.md`. Summary:
 
-1. `next build` — builds the production app
-2. `next start` — starts the server
-3. **PM2** — keeps the process alive and auto-restarts on crash
-4. **Nginx** — reverse proxy, routes traffic to Next.js port
-5. **Certbot** — manages SSL certificates (Let's Encrypt)
+```bash
+cd ~/sistemahub && git pull
+cd website && npm install && npm run build
+pm2 restart sistemahub
+```
+
+Stack: PM2 (process manager) · Nginx (reverse proxy) · Certbot (SSL).
 
 ---
 
@@ -71,4 +85,4 @@ Use `.memory` in the project root for ongoing notes, decisions, and progress.
 
 ## Status
 
-Brand new — not yet scaffolded.
+Live at [sistemahub.com](https://sistemahub.com) — Next.js 15, Tailwind v3, Framer Motion 11.

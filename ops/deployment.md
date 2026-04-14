@@ -46,21 +46,30 @@ sudo apt install certbot python3-certbot-nginx
 
 ## Deploying the Website
 
+The website code lives in the `website/` folder. All `npm` commands must be run from there.
+
 ```bash
-# 1. Pull latest code
+# 1. Pull latest code (run from repo root)
+cd ~/sistemahub
 git pull origin main
 
-# 2. Install dependencies
+# 2. Enter the website folder
+cd website
+
+# 3. Install dependencies
 npm install
 
-# 3. Build the app
+# 4. Build the app
 npm run build
 
-# 4. Start or restart with PM2
-pm2 start npm --name "sistemahub" -- start
+# 5. Start or restart with PM2
+pm2 start npm --name "sistemahub" --cwd "$(pwd)" -- start
 # or if already running:
 pm2 restart sistemahub
 ```
+
+> **One-time VPS migration (if upgrading from the old layout where code was at repo root):**
+> Before your next `git pull`, stop PM2 (`pm2 stop sistemahub`), then `git pull`, then re-register PM2 with the new `--cwd` pointing at `website/` as shown above. Old root-level `node_modules/` and `.next/` on the VPS can be deleted — the build now writes to `website/.next/`.
 
 ---
 

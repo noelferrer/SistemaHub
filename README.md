@@ -8,13 +8,19 @@
 
 | Folder | What's inside |
 |--------|--------------|
-| `app/` | Next.js app shell — layout, globals, pages |
-| `modules/` | Site sections — Hero, About, Services, Products, Contact, ThemeSwitcher, Legal |
-| `components/` | Shared UI — Navbar, Footer |
-| `public/` | Static assets — logo SVGs |
+| `website/` | The full Next.js website — self-contained. Copy this folder to any machine and it runs. |
 | `brand/` | Logo files, brand colors, typography, brand guidelines |
 | `documents/` | Company profile, pitch deck, proposal & invoice templates |
 | `ops/` | Deployment guide, email setup, hosting configs |
+
+Inside `website/`:
+
+| Folder | What's inside |
+|--------|--------------|
+| `website/app/` | Next.js app shell — layout, globals, pages |
+| `website/modules/` | Site sections — Hero, About, Services, Products, Contact, ThemeSwitcher, Legal |
+| `website/components/` | Shared UI — Navbar, Footer |
+| `website/public/` | Static assets — logo SVGs |
 
 ---
 
@@ -26,7 +32,8 @@
 - **Introduce the company?** → `documents/company-profile.md`
 - **Set up email?** → `ops/email-setup.md`
 - **Deploy the website?** → `ops/deployment.md`
-- **Edit the website?** → `modules/` (each section is self-contained)
+- **Edit the website?** → `website/modules/` (each section is self-contained)
+- **Run the website locally?** → `cd website && npm install && npm run dev`
 
 ---
 

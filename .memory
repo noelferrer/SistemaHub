@@ -7,10 +7,12 @@
 - [x] `brand/` folder — logo placeholder, brand guidelines template
 - [x] `documents/` folder — company profile draft, pitch deck placeholder, proposal template, invoice template
 - [x] `ops/` folder — email setup guide (hello@sistemahub.com), deployment guide
-- [x] `website/` — Next.js 16 + Tailwind + shadcn/ui + Framer Motion scaffolded
-- [x] Website modules: hero, about, services, products, contact
+- [x] `website/` — Next.js 15 + Tailwind v3 + Framer Motion 11, deployed to sistemahub.com
+- [x] Website modules: hero, about, services, products, contact, theme-switcher, legal
 - [x] Website navigation (sticky, mobile-responsive)
-- [x] Production build verified (no errors)
+- [x] Terms of Service + Privacy Policy pages
+- [x] Plum dark theme (#0B0C37)
+- [x] Production build verified, live on VPS
 
 ### Pending / Next Steps
 - [ ] Logo + brand identity (needs designer)
@@ -31,11 +33,19 @@
 - Each folder has a README so any team member can navigate without asking
 
 ### Website Architecture
-- Next.js 16, App Router, TypeScript, Tailwind CSS v4
-- shadcn/ui for components, Framer Motion for animations
-- Modular: each page section is a standalone module in `modules/`
+- Next.js 15, App Router, TypeScript, Tailwind CSS v3
+- Framer Motion 11 for animations
+- Modular: each page section is a standalone module in `website/modules/`
 - `"use client"` only where needed (hero for motion, nav for state)
 - Build verified clean: static prerender, 0 errors
+
+### Workspace Restructure (2026-04-14)
+- Previously, the Next.js code lived at repo root (`app/`, `modules/`, etc.) with a separate Next 16 WIP scaffold in `website/`.
+- Restructured: moved the live Next 15 code into `website/` (via `git mv`, history preserved).
+- Discarded the Next 16 WIP scaffold.
+- Result: `website/` is fully self-contained and portable. Repo root only holds `brand/`, `documents/`, `ops/`, `website/`, and workspace docs.
+- `ops/deployment.md` updated: VPS deploy now does `cd website && npm install && npm run build` before `pm2 restart`.
+- VPS migration required before next deploy — see deployment.md for one-time steps.
 
 ### Documents
 - All documents in Markdown — portable, no tool dependency
