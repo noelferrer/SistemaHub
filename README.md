@@ -47,7 +47,7 @@ Inside `website/`:
 | Privacy Policy | Live at [sistemahub.com/privacy](https://sistemahub.com/privacy) |
 | Company profile | Ready |
 | Proposal template | Ready — fill in per project |
-| Company email (hello@sistemahub.com) | See `ops/email-setup.md` |
+| Company email (sistemahub1@gmail.com) | See `ops/email-setup.md` |
 
 ---
 

@@ -62,7 +62,7 @@ export default function About() {
 
             <motion.a
               variants={fadeUp}
-              href="mailto:hello@sistemahub.com"
+              href="mailto:sistemahub1@gmail.com"
               className="inline-flex items-center gap-2 text-sm font-semibold text-brand-blue hover:text-brand-teal transition-colors"
             >
               Start a conversation

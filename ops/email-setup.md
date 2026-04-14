@@ -1,6 +1,6 @@
 # Company Email Setup
 
-**Primary email:** hello@sistemahub.com
+**Primary email:** sistemahub1@gmail.com
 **Domain:** sistemahub.com
 
 ---
@@ -17,7 +17,7 @@ Google Workspace gives you `@sistemahub.com` email addresses with Gmail, Google 
 3. **Verify domain ownership** — Google will give you a TXT record to add to your DNS
 4. **Set up MX records** — Point your domain's mail to Google's servers
    - Google provides the exact MX records during setup
-5. **Create the mailbox:** `hello@sistemahub.com`
+5. **Create the mailbox:** `sistemahub1@gmail.com`
 6. **Optionally add aliases** (e.g., `support@sistemahub.com` → forwards to hello)
 
 ### DNS Records Needed (Google Workspace)
@@ -40,7 +40,7 @@ Zoho Mail offers a free plan for up to 5 users at 5GB/user — good for getting 
 1. Go to zoho.com/mail
 2. Sign up with your domain
 3. Add the required MX and TXT records to your DNS
-4. Create `hello@sistemahub.com`
+4. Create `sistemahub1@gmail.com`
 
 ---
 
@@ -50,7 +50,7 @@ Zoho Mail offers a free plan for up to 5 users at 5GB/user — good for getting 
 [Your Name]
 [Your Role]
 SistemaHub
-hello@sistemahub.com | sistemahub.com
+sistemahub1@gmail.com | sistemahub.com
 ```
 
 ---
@@ -60,5 +60,5 @@ hello@sistemahub.com | sistemahub.com
 - [ ] Domain registered
 - [ ] Email provider chosen (Google Workspace / Zoho)
 - [ ] DNS records configured
-- [ ] hello@sistemahub.com active
+- [ ] sistemahub1@gmail.com active
 - [ ] Email signature set up

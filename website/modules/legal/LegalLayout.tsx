@@ -41,8 +41,8 @@ export default function LegalLayout({ badge, title, lastUpdated, children }: Pro
         <div className="mt-16 pt-8 border-t border-white/[0.07] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="text-xs text-n-500">
             Questions? Email us at{' '}
-            <a href="mailto:hello@sistemahub.com" className="text-brand-teal hover:underline">
-              hello@sistemahub.com
+            <a href="mailto:sistemahub1@gmail.com" className="text-brand-teal hover:underline">
+              sistemahub1@gmail.com
             </a>
           </p>
           <div className="flex gap-5 text-xs text-n-500">

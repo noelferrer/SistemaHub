@@ -1,7 +1,7 @@
 # Project Proposal
 
 **Prepared by:** SistemaHub
-**Email:** hello@sistemahub.com
+**Email:** sistemahub1@gmail.com
 **Date:** *(insert date)*
 **Prepared for:** *(Client Name / Company)*
 
@@ -87,7 +87,7 @@ Example:
 
 SistemaHub builds practical web applications for businesses. We've built [TaoLink HRIS] for HR teams and [Landlord HQ] for property managers. We work closely with clients to solve real problems with software that's simple, reliable, and built to last.
 
-**Email:** hello@sistemahub.com
+**Email:** sistemahub1@gmail.com
 **Website:** sistemahub.com
 
 ---

@@ -56,7 +56,7 @@ export default function Contact() {
           {/* Email CTA */}
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
-              href="mailto:hello@sistemahub.com"
+              href="mailto:sistemahub1@gmail.com"
               className="group inline-flex items-center gap-3 px-7 py-4 rounded-xl bg-brand-teal text-brand-dark font-semibold text-sm hover:brightness-110 transition-all"
             >
               <svg viewBox="0 0 20 20" fill="none" width="16" height="16">
@@ -64,7 +64,7 @@ export default function Contact() {
                   stroke="currentColor" strokeWidth="1.5" />
                 <path d="M2 6l8 5 8-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
-              hello@sistemahub.com
+              sistemahub1@gmail.com
             </a>
           </motion.div>
 

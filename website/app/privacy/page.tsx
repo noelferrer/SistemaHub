@@ -136,7 +136,7 @@ export default function PrivacyPage() {
       </ul>
       <p>
         To exercise any of these rights, contact us at{' '}
-        <a href="mailto:hello@sistemahub.com">hello@sistemahub.com</a>. We will respond
+        <a href="mailto:sistemahub1@gmail.com">sistemahub1@gmail.com</a>. We will respond
         within 30 days.
       </p>
 
@@ -183,7 +183,7 @@ export default function PrivacyPage() {
         how we handle your data, please contact us:
       </p>
       <ul>
-        <li><strong>Email:</strong> <a href="mailto:hello@sistemahub.com">hello@sistemahub.com</a></li>
+        <li><strong>Email:</strong> <a href="mailto:sistemahub1@gmail.com">sistemahub1@gmail.com</a></li>
         <li><strong>Website:</strong> <a href="https://sistemahub.com">sistemahub.com</a></li>
       </ul>
 

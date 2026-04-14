@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SistemaHub — Company Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── Brand Tokens ───────────────────────────────────────── */
+    :root {
+      --dark:        #0B0C37;
+      --dark-mid:    #141557;
+      --orange:      #f39f5a;
+      --orange-lt:   #f7c49d;
+      --rose:        #ae445a;
+      --gradient:    linear-gradient(135deg, #ae445a 0%, #f39f5a 100%);
+      --n900:        #0B1437;
+      --n700:        #2C3E6B;
+      --n500:        #4A5E8A;
+      --n400:        #7B8DB0;
+      --n200:        #D1D9E6;
+      --n100:        #EFF2F7;
+      --n50:         #F8FAFF;
+      --white:       #FFFFFF;
+
+      --font-head:   'Space Grotesk', system-ui, sans-serif;
+      --font-body:   'Inter', system-ui, sans-serif;
+      --font-mono:   'JetBrains Mono', monospace;
+    }
+
+    html {
+      font-family: var(--font-body);
+      font-size: 10pt;
+      color: var(--n900);
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    body { background: white; }
+
+    /* ─── PDF Page Rules ─────────────────────────────────────── */
+    @page { size: A4; margin: 0; }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+    }
+    .page:last-child { page-break-after: avoid; }
+
+    /* ─── Inline Logo SVGs ───────────────────────────────────── */
+    /* (embedded directly — no external file dependency) */
+
+    /* ─── COVER PAGE ─────────────────────────────────────────── */
+    .cover {
+      background: var(--dark);
+      height: 297mm;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Orbital glow decoration — top right */
+    .cover-glow-tr {
+      position: absolute;
+      top: -55mm;
+      right: -45mm;
+      width: 170mm;
+      height: 170mm;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(243,159,90,0.13) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    /* Orbital glow — bottom left */
+    .cover-glow-bl {
+      position: absolute;
+      bottom: -35mm;
+      left: -35mm;
+      width: 130mm;
+      height: 130mm;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(174,68,90,0.10) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    .cover-top {
+      padding: 13mm 16mm 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cover-doc-label {
+      font-family: var(--font-mono);
+      font-size: 7pt;
+      font-weight: 500;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .cover-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 16mm;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cover-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 7pt;
+      font-weight: 500;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      margin-bottom: 6mm;
+    }
+
+    .cover-title {
+      font-family: var(--font-head);
+      font-size: 40pt;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 7mm;
+    }
+
+    .cover-title-accent {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cover-rule {
+      width: 14mm;
+      height: 0.7mm;
+      background: var(--gradient);
+      margin-bottom: 7mm;
+    }
+
+    .cover-tagline {
+      font-family: var(--font-body);
+      font-size: 11pt;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+      max-width: 110mm;
+      margin-bottom: 10mm;
+    }
+
+    .cover-pillars {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5mm;
+    }
+
+    .cover-pill {
+      font-family: var(--font-mono);
+      font-size: 6.5pt;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      border: 0.3mm solid rgba(255,255,255,0.12);
+      padding: 1.5mm 3mm;
+      border-radius: 100mm;
+    }
+
+    .cover-bottom {
+      padding: 7mm 16mm 12mm;
+      border-top: 0.3mm solid rgba(255,255,255,0.07);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cover-contact { display: flex; flex-direction: column; gap: 1.5mm; }
+    .cover-contact-line {
+      font-size: 8pt;
+      color: rgba(255,255,255,0.45);
+    }
+    .cover-contact-line strong {
+      color: rgba(255,255,255,0.80);
+      font-weight: 500;
+    }
+
+    .cover-year {
+      font-family: var(--font-mono);
+      font-size: 7.5pt;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ─── INNER PAGES ────────────────────────────────────────── */
+    .inner {
+      background: var(--white);
+      height: 297mm;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top band */
+    .page-band {
+      background: var(--dark);
+      padding: 6mm 16mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .page-band-section {
+      font-family: var(--font-mono);
+      font-size: 6.5pt;
+      font-weight: 500;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    /* Content area */
+    .page-content {
+      flex: 1;
+      padding: 10mm 16mm 7mm;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    .page-foot {
+      padding: 3.5mm 16mm;
+      border-top: 0.3mm solid var(--n200);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .page-foot-left {
+      font-family: var(--font-mono);
+      font-size: 6pt;
+      color: var(--n400);
+    }
+    .page-foot-right {
+      font-family: var(--font-mono);
+      font-size: 6pt;
+      color: var(--n400);
+    }
+
+    /* ─── Typography ─────────────────────────────────────────── */
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 6.5pt;
+      font-weight: 500;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 3mm;
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: 21pt;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      margin-bottom: 5mm;
+    }
+
+    .gradient-rule {
+      width: 12mm;
+      height: 0.8mm;
+      background: var(--gradient);
+      margin-bottom: 6mm;
+    }
+
+    p {
+      font-size: 8.5pt;
+      line-height: 1.75;
+      color: var(--n700);
+      margin-bottom: 4mm;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    .h-rule { width: 100%; height: 0.3mm; background: var(--n200); margin: 6mm 0; }
+
+    .sub-title {
+      font-family: var(--font-head);
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: var(--n900);
+      margin-bottom: 3mm;
+    }
+
+    /* ─── Mission / Vision ───────────────────────────────────── */
+    .mv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4.5mm;
+      margin-bottom: 6mm;
+    }
+    .mv-card {
+      background: var(--n50);
+      border-radius: 3mm;
+      padding: 5mm;
+      border-left: 1mm solid transparent;
+      border-image: var(--gradient) 1;
+    }
+    .mv-label {
+      font-family: var(--font-mono);
+      font-size: 6pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--orange);
+      margin-bottom: 2mm;
+    }
+    .mv-text {
+      font-size: 8pt;
+      line-height: 1.65;
+      color: var(--n700);
+      margin-bottom: 0;
+    }
+
+    /* ─── Values ─────────────────────────────────────────────── */
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm 6mm;
+    }
+    .value-item {
+      display: flex;
+      gap: 2.5mm;
+      align-items: flex-start;
+    }
+    .value-dot {
+      width: 1.8mm;
+      height: 1.8mm;
+      border-radius: 50%;
+      background: var(--orange);
+      margin-top: 2mm;
+      flex-shrink: 0;
+    }
+    .value-title {
+      font-family: var(--font-head);
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 0.8mm;
+    }
+    .value-desc {
+      font-size: 7.5pt;
+      color: var(--n500);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ─── Services Grid ──────────────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+    }
+    .service-card {
+      border: 0.3mm solid var(--n200);
+      border-radius: 3mm;
+      padding: 5.5mm 5.5mm 5.5mm 7mm;
+      position: relative;
+      background: var(--white);
+      transition: none;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 1mm; height: 100%;
+      background: var(--gradient);
+      border-radius: 3mm 0 0 3mm;
+    }
+    .service-title {
+      font-family: var(--font-head);
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 2mm;
+    }
+    .service-desc {
+      font-size: 7.5pt;
+      line-height: 1.65;
+      color: var(--n500);
+      margin: 0;
+    }
+
+    /* ─── Products ───────────────────────────────────────────── */
+    .product-card {
+      display: flex;
+      gap: 7mm;
+      background: var(--n50);
+      border-radius: 4mm;
+      padding: 7mm;
+      margin-bottom: 5mm;
+      border: 0.3mm solid var(--n200);
+    }
+    .product-card:last-child { margin-bottom: 0; }
+    .product-left { flex: 1; }
+    .product-right { width: 50mm; }
+
+    .product-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 5.5pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 1mm 2.5mm;
+      border-radius: 100mm;
+      margin-bottom: 3mm;
+    }
+    .badge-rose { background: rgba(174,68,90,0.10); color: var(--rose); }
+    .badge-orange { background: rgba(243,159,90,0.12); color: #c07530; }
+
+    .product-name {
+      font-family: var(--font-head);
+      font-size: 13pt;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.02em;
+      margin-bottom: 1mm;
+    }
+    .product-tagline {
+      font-family: var(--font-mono);
+      font-size: 6.5pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--n400);
+      margin-bottom: 3.5mm;
+    }
+    .product-desc {
+      font-size: 7.5pt;
+      line-height: 1.65;
+      color: var(--n700);
+      margin-bottom: 3mm;
+    }
+    .product-url {
+      font-family: var(--font-mono);
+      font-size: 6.5pt;
+      color: var(--orange);
+      font-weight: 500;
+    }
+
+    .feature-label {
+      font-family: var(--font-mono);
+      font-size: 6pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--n400);
+      margin-bottom: 2.5mm;
+    }
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 2mm; }
+    .feature-item {
+      display: flex;
+      gap: 2mm;
+      align-items: flex-start;
+      font-size: 7.5pt;
+      color: var(--n700);
+      line-height: 1.5;
+    }
+    .feature-check {
+      font-size: 7pt;
+      line-height: 1.5;
+      flex-shrink: 0;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+
+    /* ─── Process ────────────────────────────────────────────── */
+    .process-list { display: flex; flex-direction: column; gap: 4.5mm; }
+    .process-item { display: flex; gap: 4mm; align-items: flex-start; }
+    .process-num {
+      width: 7.5mm; height: 7.5mm;
+      border-radius: 50%;
+      background: var(--dark);
+      color: var(--white);
+      font-family: var(--font-head);
+      font-size: 8pt;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .process-title {
+      font-family: var(--font-head);
+      font-size: 9pt;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 1mm;
+    }
+    .process-desc {
+      font-size: 7.5pt;
+      line-height: 1.6;
+      color: var(--n500);
+      margin: 0;
+    }
+
+    /* ─── Why Cards ──────────────────────────────────────────── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5mm;
+    }
+    .why-card {
+      background: var(--n50);
+      border-radius: 3mm;
+      padding: 4.5mm 5mm;
+      border-top: 0.8mm solid var(--orange);
+    }
+    .why-title {
+      font-family: var(--font-head);
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 1.5mm;
+    }
+    .why-desc {
+      font-size: 7pt;
+      line-height: 1.6;
+      color: var(--n500);
+      margin: 0;
+    }
+
+    /* ─── Glance Table ───────────────────────────────────────── */
+    .glance-table { width: 100%; border-collapse: collapse; }
+    .glance-table tr { border-bottom: 0.3mm solid var(--n200); }
+    .glance-table tr:last-child { border-bottom: none; }
+    .glance-table td { padding: 2.5mm 0; font-size: 8pt; line-height: 1.5; }
+    .glance-table td:first-child {
+      font-family: var(--font-mono);
+      font-size: 6.5pt;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--n400);
+      font-weight: 500;
+      width: 36mm;
+    }
+    .glance-table td:last-child { color: var(--dark); font-weight: 500; }
+
+    /* ─── Two-col helper ─────────────────────────────────────── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 9mm; }
+
+    /* ─── BACK COVER ─────────────────────────────────────────── */
+    .back-cover {
+      background: var(--dark);
+      height: 297mm;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .back-glow-tl {
+      position: absolute; top: -50mm; left: -40mm;
+      width: 150mm; height: 150mm; border-radius: 50%;
+      background: radial-gradient(circle, rgba(174,68,90,0.12) 0%, transparent 70%);
+    }
+    .back-glow-br {
+      position: absolute; bottom: -30mm; right: -30mm;
+      width: 120mm; height: 120mm; border-radius: 50%;
+      background: radial-gradient(circle, rgba(243,159,90,0.10) 0%, transparent 70%);
+    }
+    .back-inner {
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      padding: 0 20mm;
+    }
+    .back-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 6.5pt;
+      font-weight: 500;
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      margin-bottom: 6mm;
+    }
+    .back-headline {
+      font-family: var(--font-head);
+      font-size: 24pt;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 6mm;
+    }
+    .back-sub {
+      font-size: 9pt;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+      margin-bottom: 10mm;
+    }
+    .back-rule {
+      width: 14mm; height: 0.7mm;
+      background: var(--gradient);
+      margin: 0 auto 8mm;
+    }
+    .back-contacts { display: flex; flex-direction: column; gap: 3mm; align-items: center; }
+    .back-contact-row { display: flex; gap: 2.5mm; align-items: center; font-size: 9pt; }
+    .back-contact-lbl { color: rgba(255,255,255,0.35); }
+    .back-contact-val { color: var(--white); font-weight: 600; font-family: var(--font-head); }
+    .back-wordmark-wrap { margin-top: 10mm; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  PAGE 1 — COVER                                           -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-glow-tr"></div>
+  <div class="cover-glow-bl"></div>
+
+  <div class="cover-top">
+    <!-- Logo: Option B dark variant (embedded inline) -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="180" height="36" fill="none">
+      <defs>
+        <linearGradient id="lg-cover" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#ae445a"/>
+          <stop offset="100%" stop-color="#f39f5a"/>
+        </linearGradient>
+      </defs>
+      <circle cx="20" cy="20" r="16" stroke="url(#lg-cover)" stroke-width="2.5" fill="none"
+        stroke-dasharray="89.36 11.17" stroke-linecap="round" transform="rotate(110 20 20)"/>
+      <circle cx="20" cy="20" r="9.5" stroke="url(#lg-cover)" stroke-width="2" fill="none"
+        stroke-dasharray="53.06 6.63" stroke-linecap="round" transform="rotate(290 20 20)"/>
+      <circle cx="20" cy="20" r="2.5" fill="url(#lg-cover)"/>
+      <text x="52" y="27" font-family="'Space Grotesk', system-ui, sans-serif" font-size="20" letter-spacing="-0.3">
+        <tspan fill="#FFFFFF" font-weight="400">Sistema</tspan><tspan fill="#f39f5a" font-weight="700">Hub</tspan>
+      </text>
+    </svg>
+    <div class="cover-doc-label">Company Profile · 2026</div>
+  </div>
+
+  <div class="cover-body">
+    <div class="cover-eyebrow">Software for Modern Businesses</div>
+    <div class="cover-title">
+      We build software<br>
+      <span class="cover-title-accent">that works for you.</span>
+    </div>
+    <div class="cover-rule"></div>
+    <div class="cover-tagline">
+      Purpose-built web applications that simplify how<br>
+      businesses operate — designed, built, and supported<br>
+      from concept to deployment.
+    </div>
+    <div class="cover-pillars">
+      <div class="cover-pill">Web Applications</div>
+      <div class="cover-pill">Workflow Automation</div>
+      <div class="cover-pill">SaaS Development</div>
+      <div class="cover-pill">Maintenance &amp; Support</div>
+    </div>
+  </div>
+
+  <div class="cover-bottom">
+    <div class="cover-contact">
+      <div class="cover-contact-line"><strong>sistemahub1@gmail.com</strong></div>
+      <div class="cover-contact-line"><strong>sistemahub.com</strong></div>
+    </div>
+    <div class="cover-year">© 2026 SistemaHub</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  PAGE 2 — WHO WE ARE                                      -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="page inner">
+  <div class="page-band">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="140" height="28" fill="none">
+      <defs>
+        <linearGradient id="lg-band2" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#ae445a"/>
+          <stop offset="100%" stop-color="#f39f5a"/>
+        </linearGradient>
+      </defs>
+      <circle cx="20" cy="20" r="16" stroke="url(#lg-band2)" stroke-width="2.5" fill="none"
+        stroke-dasharray="89.36 11.17" stroke-linecap="round" transform="rotate(110 20 20)"/>
+      <circle cx="20" cy="20" r="9.5" stroke="url(#lg-band2)" stroke-width="2" fill="none"
+        stroke-dasharray="53.06 6.63" stroke-linecap="round" transform="rotate(290 20 20)"/>
+      <circle cx="20" cy="20" r="2.5" fill="url(#lg-band2)"/>
+      <text x="52" y="27" font-family="'Space Grotesk', system-ui, sans-serif" font-size="20" letter-spacing="-0.3">
+        <tspan fill="#FFFFFF" font-weight="400">Sistema</tspan><tspan fill="#f39f5a" font-weight="700">Hub</tspan>
+      </text>
+    </svg>
+    <div class="page-band-section">Company Overview</div>
+  </div>
+
+  <div class="page-content">
+    <div class="eyebrow">Who We Are</div>
+    <div class="section-title">Built by people who understand<br>your business problems.</div>
+    <div class="gradient-rule"></div>
+
+    <p>SistemaHub is a software development company focused on building practical, purpose-built web applications for businesses. We partner with organizations to understand their operational challenges — then engineer solutions that are simple to use, reliable in production, and built to endure.</p>
+
+    <p>We are not a one-size-fits-all agency. Every engagement starts with listening, and ends with software that actually solves the problem — not a generic product retrofitted to your workflow.</p>
+
+    <div class="h-rule"></div>
+
+    <div class="mv-grid">
+      <div class="mv-card">
+        <div class="mv-label">Our Mission</div>
+        <p class="mv-text">To empower businesses with software systems that simplify operations, eliminate manual inefficiencies, and support sustainable growth.</p>
+      </div>
+      <div class="mv-card">
+        <div class="mv-label">Our Vision</div>
+        <p class="mv-text">A future where every business — regardless of size or industry — has access to professional-grade tools built specifically for how they work.</p>
+      </div>
+    </div>
+
+    <div class="h-rule"></div>
+
+    <div class="sub-title">Core Values</div>
+    <div class="values-grid">
+      <div class="value-item">
+        <div class="value-dot"></div>
+        <div>
+          <div class="value-title">Clarity over complexity</div>
+          <p class="value-desc">We cut through noise and build what's needed — not what looks impressive on a slide.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-dot"></div>
+        <div>
+          <div class="value-title">Reliability over features</div>
+          <p class="value-desc">Software that works consistently beats software that does everything poorly.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-dot"></div>
+        <div>
+          <div class="value-title">Partnership over transactions</div>
+          <p class="value-desc">We invest in client outcomes — not just deliverables. We're in it for the long term.</p>
+        </div>
+      </div>
+      <div class="value-item">
+        <div class="value-dot"></div>
+        <div>
+          <div class="value-title">Craft over shortcuts</div>
+          <p class="value-desc">Good software takes care and attention. We don't cut corners on things that matter.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="h-rule"></div>
+
+    <div class="sub-title">The SistemaHub Standard</div>
+    <p>Every product we build — whether for a client or under our own brand — is held to the same standard: clean architecture, intuitive design, and long-term maintainability. We don't ship software we wouldn't use ourselves.</p>
+  </div>
+
+  <div class="page-foot">
+    <div class="page-foot-left">SistemaHub — Company Profile · 2026</div>
+    <div class="page-foot-right">02</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  PAGE 3 — SERVICES                                        -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="page inner">
+  <div class="page-band">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="140" height="28" fill="none">
+      <defs>
+        <linearGradient id="lg-band3" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#ae445a"/>
+          <stop offset="100%" stop-color="#f39f5a"/>
+        </linearGradient>
+      </defs>
+      <circle cx="20" cy="20" r="16" stroke="url(#lg-band3)" stroke-width="2.5" fill="none"
+        stroke-dasharray="89.36 11.17" stroke-linecap="round" transform="rotate(110 20 20)"/>
+      <circle cx="20" cy="20" r="9.5" stroke="url(#lg-band3)" stroke-width="2" fill="none"
+        stroke-dasharray="53.06 6.63" stroke-linecap="round" transform="rotate(290 20 20)"/>
+      <circle cx="20" cy="20" r="2.5" fill="url(#lg-band3)"/>
+      <text x="52" y="27" font-family="'Space Grotesk', system-ui, sans-serif" font-size="20" letter-spacing="-0.3">
+        <tspan fill="#FFFFFF" font-weight="400">Sistema</tspan><tspan fill="#f39f5a" font-weight="700">Hub</tspan>
+      </text>
+    </svg>
+    <div class="page-band-section">Services</div>
+  </div>
+
+  <div class="page-content">
+    <div class="eyebrow">What We Do</div>
+    <div class="section-title">Full-stack capability,<br>start to finish.</div>
+    <div class="gradient-rule"></div>
+
+    <p style="margin-bottom:6mm;">From the first wireframe to a live, deployed product — we handle everything. Our capabilities span design, engineering, and ongoing support so that clients have a single, accountable partner across the full software lifecycle.</p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-title">Web Application Development</div>
+        <p class="service-desc">We design and build custom web applications from the ground up — frontend, backend, and infrastructure. Whether it's an internal operations tool or a client-facing product, we build it right.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-title">Business Workflow Automation</div>
+        <p class="service-desc">We replace spreadsheets and disconnected manual processes with purpose-built software that saves time, reduces human error, and scales as your business grows.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-title">SaaS Product Development</div>
+        <p class="service-desc">Have an idea for a software product? We take it from concept to a fully deployed, multi-tenant SaaS application — product strategy, architecture, design, and engineering included.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-title">UI/UX Design</div>
+        <p class="service-desc">Good software starts with good design. We map user flows, build wireframes, and design interfaces that are intuitive for the people who will use them every day — not just in a demo.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-title">System Architecture &amp; Consulting</div>
+        <p class="service-desc">Not sure how to structure your system, integrate with existing tools, or plan for scale? We bring deep expertise in system design and technical consulting to help you make the right calls early.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-title">Maintenance &amp; Support</div>
+        <p class="service-desc">We don't disappear after launch. We offer ongoing maintenance, performance monitoring, updates, and feature development to keep your software running smoothly as your business evolves.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <div class="page-foot-left">SistemaHub — Company Profile · 2026</div>
+    <div class="page-foot-right">03</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  PAGE 4 — PRODUCTS                                        -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="page inner">
+  <div class="page-band">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="140" height="28" fill="none">
+      <defs>
+        <linearGradient id="lg-band4" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#ae445a"/>
+          <stop offset="100%" stop-color="#f39f5a"/>
+        </linearGradient>
+      </defs>
+      <circle cx="20" cy="20" r="16" stroke="url(#lg-band4)" stroke-width="2.5" fill="none"
+        stroke-dasharray="89.36 11.17" stroke-linecap="round" transform="rotate(110 20 20)"/>
+      <circle cx="20" cy="20" r="9.5" stroke="url(#lg-band4)" stroke-width="2" fill="none"
+        stroke-dasharray="53.06 6.63" stroke-linecap="round" transform="rotate(290 20 20)"/>
+      <circle cx="20" cy="20" r="2.5" fill="url(#lg-band4)"/>
+      <text x="52" y="27" font-family="'Space Grotesk', system-ui, sans-serif" font-size="20" letter-spacing="-0.3">
+        <tspan fill="#FFFFFF" font-weight="400">Sistema</tspan><tspan fill="#f39f5a" font-weight="700">Hub</tspan>
+      </text>
+    </svg>
+    <div class="page-band-section">Our Products</div>
+  </div>
+
+  <div class="page-content">
+    <div class="eyebrow">Our Products</div>
+    <div class="section-title">Software we ship.<br>Proof of how we build.</div>
+    <div class="gradient-rule"></div>
+
+    <p style="margin-bottom:6mm;">Our products are not hypothetical — they are live, deployed applications used by real businesses. They are built using the same process, standards, and care we apply to every client engagement. They are proof, not promises.</p>
+
+    <div class="product-card">
+      <div class="product-left">
+        <div class="product-badge badge-rose">Available · HR Technology</div>
+        <div class="product-name">TaoLink HRIS</div>
+        <div class="product-tagline">HR Management, Simplified.</div>
+        <p class="product-desc">TaoLink is a human resource information system built for modern businesses. It consolidates everything HR teams need into a single, easy-to-use platform — eliminating the fragmented spreadsheets and manual tracking that slow operations down. From onboarding to reporting, TaoLink keeps HR running smoothly.</p>
+        <div class="product-url">taolink.sistemahub.com</div>
+      </div>
+      <div class="product-right">
+        <div class="feature-label">Key Features</div>
+        <ul class="feature-list">
+          <li class="feature-item"><span class="feature-check">✓</span> Employee records management</li>
+          <li class="feature-item"><span class="feature-check">✓</span> Attendance &amp; time tracking</li>
+          <li class="feature-item"><span class="feature-check">✓</span> Leave request workflows</li>
+          <li class="feature-item"><span class="feature-check">✓</span> HR reporting &amp; analytics</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-left">
+        <div class="product-badge badge-orange">Available · Property Management</div>
+        <div class="product-name">Landlord HQ</div>
+        <div class="product-tagline">Property Management Without the Mess.</div>
+        <p class="product-desc">Landlord HQ is built for property owners and managers who are done running their portfolio through spreadsheets and group chats. It centralizes units, tenants, rent, and maintenance in one dashboard — bringing order and clarity to property operations at any scale.</p>
+        <div class="product-url">landlordhq.sistemahub.com</div>
+      </div>
+      <div class="product-right">
+        <div class="feature-label">Key Features</div>
+        <ul class="feature-list">
+          <li class="feature-item"><span class="feature-check">✓</span> Unit &amp; tenant management</li>
+          <li class="feature-item"><span class="feature-check">✓</span> Rent tracking &amp; reminders</li>
+          <li class="feature-item"><span class="feature-check">✓</span> Maintenance request log</li>
+          <li class="feature-item"><span class="feature-check">✓</span> Lease document storage</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <div class="page-foot-left">SistemaHub — Company Profile · 2026</div>
+    <div class="page-foot-right">04</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  PAGE 5 — PROCESS + WHY US                                -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="page inner">
+  <div class="page-band">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="140" height="28" fill="none">
+      <defs>
+        <linearGradient id="lg-band5" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stop-color="#ae445a"/>
+          <stop offset="100%" stop-color="#f39f5a"/>
+        </linearGradient>
+      </defs>
+      <circle cx="20" cy="20" r="16" stroke="url(#lg-band5)" stroke-width="2.5" fill="none"
+        stroke-dasharray="89.36 11.17" stroke-linecap="round" transform="rotate(110 20 20)"/>
+      <circle cx="20" cy="20" r="9.5" stroke="url(#lg-band5)" stroke-width="2" fill="none"
+        stroke-dasharray="53.06 6.63" stroke-linecap="round" transform="rotate(290 20 20)"/>
+      <circle cx="20" cy="20" r="2.5" fill="url(#lg-band5)"/>
+      <text x="52" y="27" font-family="'Space Grotesk', system-ui, sans-serif" font-size="20" letter-spacing="-0.3">
+        <tspan fill="#FFFFFF" font-weight="400">Sistema</tspan><tspan fill="#f39f5a" font-weight="700">Hub</tspan>
+      </text>
+    </svg>
+    <div class="page-band-section">Process · Why SistemaHub</div>
+  </div>
+
+  <div class="page-content">
+    <div class="two-col">
+
+      <!-- LEFT: Process -->
+      <div>
+        <div class="eyebrow">Our Process</div>
+        <div style="font-family:var(--font-head);font-size:15pt;font-weight:700;color:var(--dark);letter-spacing:-0.02em;line-height:1.1;margin-bottom:4mm;">From problem<br>to product.</div>
+        <div class="gradient-rule"></div>
+        <p style="font-size:7.5pt;margin-bottom:5mm;color:var(--n500);">We work closely with every client. Here's how we move from the initial conversation to a live, working system.</p>
+
+        <div class="process-list">
+          <div class="process-item">
+            <div class="process-num">1</div>
+            <div>
+              <div class="process-title">Understand</div>
+              <p class="process-desc">We run a deep discovery session to map the real problem, existing workflow, and end users. We don't write a single line of code until the goal is crystal clear.</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <div class="process-num">2</div>
+            <div>
+              <div class="process-title">Design</div>
+              <p class="process-desc">We build the solution in structure first — user flows, wireframes, UX architecture. You see the full picture before we build anything.</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <div class="process-num">3</div>
+            <div>
+              <div class="process-title">Build</div>
+              <p class="process-desc">Development is iterative and transparent. You see progress at every stage, provide feedback, and stay in the loop. No black-box development.</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <div class="process-num">4</div>
+            <div>
+              <div class="process-title">Ship</div>
+              <p class="process-desc">We handle deployment, QA, and launch. The software is tested, documented, and handed over — running and production-ready.</p>
+            </div>
+          </div>
+          <div class="process-item">
+            <div class="process-num">5</div>
+            <div>
+              <div class="process-title">Support</div>
+              <p class="process-desc">After launch, we stay close. Maintenance, improvements, new features — we're a long-term partner, not a one-time vendor.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Why Us + At a Glance -->
+      <div>
+        <div class="eyebrow">Why SistemaHub</div>
+        <div style="font-family:var(--font-head);font-size:15pt;font-weight:700;color:var(--dark);letter-spacing:-0.02em;line-height:1.1;margin-bottom:4mm;">What makes us<br>the right choice.</div>
+        <div class="gradient-rule"></div>
+        <p style="font-size:7.5pt;margin-bottom:5mm;color:var(--n500);">There are many software agencies. Here's what makes SistemaHub different.</p>
+
+        <div class="why-grid" style="margin-bottom:6mm;">
+          <div class="why-card">
+            <div class="why-title">Purpose-Built</div>
+            <p class="why-desc">We build for your specific workflow — not a generic template dressed up with your branding.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-title">Full-Stack Capability</div>
+            <p class="why-desc">Design, development, and deployment under one roof. One team, one accountable partner.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-title">Proven by Our Products</div>
+            <p class="why-desc">TaoLink and Landlord HQ are built the same way we build for clients — proof, not promises.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-title">Transparent Process</div>
+            <p class="why-desc">Regular check-ins, visible progress, no surprises. You're never in the dark about your project.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-title">Long-Term Partnership</div>
+            <p class="why-desc">We stay after launch. Ongoing support and feature development are built into how we work.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-title">Real-World Experience</div>
+            <p class="why-desc">Our products are live and in production — we understand what it takes to build and ship software that endures.</p>
+          </div>
+        </div>
+
+        <div class="h-rule"></div>
+
+        <div class="sub-title" style="margin-bottom:3mm;">At a Glance</div>
+        <table class="glance-table">
+          <tr><td>Company</td><td>SistemaHub</td></tr>
+          <tr><td>Type</td><td>Software Development Company</td></tr>
+          <tr><td>Specialization</td><td>Custom Web Applications &amp; SaaS</td></tr>
+          <tr><td>Products</td><td>TaoLink HRIS · Landlord HQ</td></tr>
+          <tr><td>Industries</td><td>HR, Property, and expanding</td></tr>
+          <tr><td>Email</td><td>sistemahub1@gmail.com</td></tr>
+          <tr><td>Website</td><td>sistemahub.com</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-foot">
+    <div class="page-foot-left">SistemaHub — Company Profile · 2026</div>
+    <div class="page-foot-right">05</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  PAGE 6 — BACK COVER                                      -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="page back-cover">
+  <div class="back-glow-tl"></div>
+  <div class="back-glow-br"></div>
+
+  <div class="back-inner">
+    <div class="back-eyebrow">Let's Build Something Together</div>
+    <div class="back-headline">Ready to replace manual<br>processes with software<br>that actually works?</div>
+    <div class="back-sub">
+      Tell us about your business and the problem you're trying to solve.<br>
+      We'll take it from there.
+    </div>
+    <div class="back-rule"></div>
+    <div class="back-contacts">
+      <div class="back-contact-row">
+        <span class="back-contact-lbl">Email</span>
+        <span class="back-contact-val">sistemahub1@gmail.com</span>
+      </div>
+      <div class="back-contact-row">
+        <span class="back-contact-lbl">Website</span>
+        <span class="back-contact-val">sistemahub.com</span>
+      </div>
+    </div>
+    <div class="back-wordmark-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40" width="160" height="32" fill="none">
+        <defs>
+          <linearGradient id="lg-back" x1="4" y1="4" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#ae445a"/>
+            <stop offset="100%" stop-color="#f39f5a"/>
+          </linearGradient>
+        </defs>
+        <circle cx="20" cy="20" r="16" stroke="url(#lg-back)" stroke-width="2.5" fill="none"
+          stroke-dasharray="89.36 11.17" stroke-linecap="round" transform="rotate(110 20 20)"/>
+        <circle cx="20" cy="20" r="9.5" stroke="url(#lg-back)" stroke-width="2" fill="none"
+          stroke-dasharray="53.06 6.63" stroke-linecap="round" transform="rotate(290 20 20)"/>
+        <circle cx="20" cy="20" r="2.5" fill="url(#lg-back)"/>
+        <text x="52" y="27" font-family="'Space Grotesk', system-ui, sans-serif" font-size="20" letter-spacing="-0.3">
+          <tspan fill="rgba(255,255,255,0.75)" font-weight="400">Sistema</tspan><tspan fill="#f39f5a" font-weight="700">Hub</tspan>
+        </text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

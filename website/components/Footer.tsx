@@ -22,10 +22,10 @@ export default function Footer() {
 
         <div className="flex flex-col items-center md:items-end gap-2">
           <a
-            href="mailto:hello@sistemahub.com"
+            href="mailto:sistemahub1@gmail.com"
             className="text-sm text-n-400 hover:text-brand-teal transition-colors"
           >
-            hello@sistemahub.com
+            sistemahub1@gmail.com
           </a>
           <p className="text-xs text-n-500">© {year} SistemaHub</p>
           <div className="flex gap-4 text-xs text-n-500">

@@ -45,7 +45,7 @@ export default function TermsPage() {
       <ul>
         <li>Provide accurate, current, and complete information during registration.</li>
         <li>Maintain the security and confidentiality of your login credentials.</li>
-        <li>Notify us immediately at <a href="mailto:hello@sistemahub.com">hello@sistemahub.com</a> of any unauthorised use of your account.</li>
+        <li>Notify us immediately at <a href="mailto:sistemahub1@gmail.com">sistemahub1@gmail.com</a> of any unauthorised use of your account.</li>
         <li>Accept responsibility for all activity that occurs under your account.</li>
       </ul>
       <p>
@@ -181,7 +181,7 @@ export default function TermsPage() {
         If you have any questions about these Terms, please contact us at:
       </p>
       <ul>
-        <li><strong>Email:</strong> <a href="mailto:hello@sistemahub.com">hello@sistemahub.com</a></li>
+        <li><strong>Email:</strong> <a href="mailto:sistemahub1@gmail.com">sistemahub1@gmail.com</a></li>
         <li><strong>Website:</strong> <a href="https://sistemahub.com">sistemahub.com</a></li>
       </ul>
 

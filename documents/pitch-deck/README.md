@@ -27,7 +27,7 @@ sistemahub-pitch-deck-v2.pptx   ← bump version when making major changes
 7. Traction — Any clients, users, or milestones?
 8. Team — Who's behind SistemaHub?
 9. Ask — What are we looking for?
-10. Contact — hello@sistemahub.com
+10. Contact — sistemahub1@gmail.com
 
 ## Status
 
